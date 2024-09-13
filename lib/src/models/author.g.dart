@@ -7,7 +7,7 @@ part of 'author.dart';
 // **************************************************************************
 
 _$AuthorImpl _$$AuthorImplFromJson(Map<String, dynamic> json) => _$AuthorImpl(
-      id: json['id'] as String,
+      id: const UuidConverter().fromJson(json['id'] as String),
       attributes:
           AuthorAttributes.fromJson(json['attributes'] as Map<String, dynamic>),
       relationships: (json['relationships'] as List<dynamic>)
@@ -17,7 +17,7 @@ _$AuthorImpl _$$AuthorImplFromJson(Map<String, dynamic> json) => _$AuthorImpl(
 
 Map<String, dynamic> _$$AuthorImplToJson(_$AuthorImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'id': const UuidConverter().toJson(instance.id),
       'attributes': instance.attributes.toJson(),
       'relationships': instance.relationships.map((e) => e.toJson()).toList(),
     };

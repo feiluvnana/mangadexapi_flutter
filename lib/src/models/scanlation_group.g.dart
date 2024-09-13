@@ -9,7 +9,7 @@ part of 'scanlation_group.dart';
 _$ScanlationGroupImpl _$$ScanlationGroupImplFromJson(
         Map<String, dynamic> json) =>
     _$ScanlationGroupImpl(
-      id: json['id'] as String,
+      id: const UuidConverter().fromJson(json['id'] as String),
       attributes: ScanlationGroupAttributes.fromJson(
           json['attributes'] as Map<String, dynamic>),
       relationships: (json['relationships'] as List<dynamic>)
@@ -20,7 +20,7 @@ _$ScanlationGroupImpl _$$ScanlationGroupImplFromJson(
 Map<String, dynamic> _$$ScanlationGroupImplToJson(
         _$ScanlationGroupImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'id': const UuidConverter().toJson(instance.id),
       'attributes': instance.attributes.toJson(),
       'relationships': instance.relationships.map((e) => e.toJson()).toList(),
     };

@@ -8,7 +8,7 @@ part of 'chapter.dart';
 
 _$ChapterImpl _$$ChapterImplFromJson(Map<String, dynamic> json) =>
     _$ChapterImpl(
-      id: json['id'] as String,
+      id: const UuidConverter().fromJson(json['id'] as String),
       attributes: ChapterAttributes.fromJson(
           json['attributes'] as Map<String, dynamic>),
       relationships: (json['relationships'] as List<dynamic>)
@@ -18,7 +18,7 @@ _$ChapterImpl _$$ChapterImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$ChapterImplToJson(_$ChapterImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'id': const UuidConverter().toJson(instance.id),
       'attributes': instance.attributes.toJson(),
       'relationships': instance.relationships.map((e) => e.toJson()).toList(),
     };
@@ -31,7 +31,8 @@ _$ChapterAttributesImpl _$$ChapterAttributesImplFromJson(
       chapter: json['chapter'] as String?,
       pages: (json['pages'] as num).toInt(),
       translatedLanguage: json['translatedLanguage'] as String,
-      uploader: json['uploader'] as String?,
+      uploader: _$JsonConverterFromJson<String, UuidValue>(
+          json['uploader'], const UuidConverter().fromJson),
       externalUrl: json['externalUrl'] as String?,
       version: (json['version'] as num).toInt(),
       createdAt:
@@ -52,7 +53,8 @@ Map<String, dynamic> _$$ChapterAttributesImplToJson(
       'chapter': instance.chapter,
       'pages': instance.pages,
       'translatedLanguage': instance.translatedLanguage,
-      'uploader': instance.uploader,
+      'uploader': _$JsonConverterToJson<String, UuidValue>(
+          instance.uploader, const UuidConverter().toJson),
       'externalUrl': instance.externalUrl,
       'version': instance.version,
       'createdAt': const DateTimeConverter().toJson(instance.createdAt),
@@ -60,3 +62,15 @@ Map<String, dynamic> _$$ChapterAttributesImplToJson(
       'publishAt': const DateTimeConverter().toJson(instance.publishAt),
       'readableAt': const DateTimeConverter().toJson(instance.readableAt),
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

@@ -20,7 +20,8 @@ Cover _$CoverFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Cover {
-  String get id => throw _privateConstructorUsedError;
+  @UuidConverter()
+  UuidValue get id => throw _privateConstructorUsedError;
   CoverAttributes get attributes => throw _privateConstructorUsedError;
   List<Relationship> get relationships => throw _privateConstructorUsedError;
 
@@ -39,7 +40,7 @@ abstract class $CoverCopyWith<$Res> {
       _$CoverCopyWithImpl<$Res, Cover>;
   @useResult
   $Res call(
-      {String id,
+      {@UuidConverter() UuidValue id,
       CoverAttributes attributes,
       List<Relationship> relationships});
 
@@ -69,7 +70,7 @@ class _$CoverCopyWithImpl<$Res, $Val extends Cover>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UuidValue,
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -100,7 +101,7 @@ abstract class _$$CoverImplCopyWith<$Res> implements $CoverCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {@UuidConverter() UuidValue id,
       CoverAttributes attributes,
       List<Relationship> relationships});
 
@@ -129,7 +130,7 @@ class __$$CoverImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UuidValue,
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -146,7 +147,7 @@ class __$$CoverImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CoverImpl implements _Cover {
   const _$CoverImpl(
-      {required this.id,
+      {@UuidConverter() required this.id,
       required this.attributes,
       required final List<Relationship> relationships})
       : _relationships = relationships;
@@ -155,7 +156,8 @@ class _$CoverImpl implements _Cover {
       _$$CoverImplFromJson(json);
 
   @override
-  final String id;
+  @UuidConverter()
+  final UuidValue id;
   @override
   final CoverAttributes attributes;
   final List<Relationship> _relationships;
@@ -206,14 +208,15 @@ class _$CoverImpl implements _Cover {
 
 abstract class _Cover implements Cover {
   const factory _Cover(
-      {required final String id,
+      {@UuidConverter() required final UuidValue id,
       required final CoverAttributes attributes,
       required final List<Relationship> relationships}) = _$CoverImpl;
 
   factory _Cover.fromJson(Map<String, dynamic> json) = _$CoverImpl.fromJson;
 
   @override
-  String get id;
+  @UuidConverter()
+  UuidValue get id;
   @override
   CoverAttributes get attributes;
   @override

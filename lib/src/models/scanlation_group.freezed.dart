@@ -20,7 +20,8 @@ ScanlationGroup _$ScanlationGroupFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ScanlationGroup {
-  String get id => throw _privateConstructorUsedError;
+  @UuidConverter()
+  UuidValue get id => throw _privateConstructorUsedError;
   ScanlationGroupAttributes get attributes =>
       throw _privateConstructorUsedError;
   List<Relationship> get relationships => throw _privateConstructorUsedError;
@@ -42,7 +43,7 @@ abstract class $ScanlationGroupCopyWith<$Res> {
       _$ScanlationGroupCopyWithImpl<$Res, ScanlationGroup>;
   @useResult
   $Res call(
-      {String id,
+      {@UuidConverter() UuidValue id,
       ScanlationGroupAttributes attributes,
       List<Relationship> relationships});
 
@@ -72,7 +73,7 @@ class _$ScanlationGroupCopyWithImpl<$Res, $Val extends ScanlationGroup>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UuidValue,
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -104,7 +105,7 @@ abstract class _$$ScanlationGroupImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {@UuidConverter() UuidValue id,
       ScanlationGroupAttributes attributes,
       List<Relationship> relationships});
 
@@ -133,7 +134,7 @@ class __$$ScanlationGroupImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UuidValue,
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -150,7 +151,7 @@ class __$$ScanlationGroupImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ScanlationGroupImpl implements _ScanlationGroup {
   _$ScanlationGroupImpl(
-      {required this.id,
+      {@UuidConverter() required this.id,
       required this.attributes,
       required final List<Relationship> relationships})
       : _relationships = relationships;
@@ -159,7 +160,8 @@ class _$ScanlationGroupImpl implements _ScanlationGroup {
       _$$ScanlationGroupImplFromJson(json);
 
   @override
-  final String id;
+  @UuidConverter()
+  final UuidValue id;
   @override
   final ScanlationGroupAttributes attributes;
   final List<Relationship> _relationships;
@@ -211,7 +213,7 @@ class _$ScanlationGroupImpl implements _ScanlationGroup {
 
 abstract class _ScanlationGroup implements ScanlationGroup {
   factory _ScanlationGroup(
-      {required final String id,
+      {@UuidConverter() required final UuidValue id,
       required final ScanlationGroupAttributes attributes,
       required final List<Relationship> relationships}) = _$ScanlationGroupImpl;
 
@@ -219,7 +221,8 @@ abstract class _ScanlationGroup implements ScanlationGroup {
       _$ScanlationGroupImpl.fromJson;
 
   @override
-  String get id;
+  @UuidConverter()
+  UuidValue get id;
   @override
   ScanlationGroupAttributes get attributes;
   @override

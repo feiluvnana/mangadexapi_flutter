@@ -255,7 +255,8 @@ mixin _$MangaAttributes {
   @AvailableTranslatedLanguagesConverter()
   List<String?> get availableTranslatedLanguages =>
       throw _privateConstructorUsedError;
-  String? get latestUploadedChapter => throw _privateConstructorUsedError;
+  @UuidConverter()
+  UuidValue? get latestUploadedChapter => throw _privateConstructorUsedError;
   List<Tag> get tags => throw _privateConstructorUsedError;
   State get state => throw _privateConstructorUsedError;
   int get version => throw _privateConstructorUsedError;
@@ -296,7 +297,7 @@ abstract class $MangaAttributesCopyWith<$Res> {
       bool chapterNumbersResetOnNewVolume,
       @AvailableTranslatedLanguagesConverter()
       List<String?> availableTranslatedLanguages,
-      String? latestUploadedChapter,
+      @UuidConverter() UuidValue? latestUploadedChapter,
       List<Tag> tags,
       State state,
       int version,
@@ -400,7 +401,7 @@ class _$MangaAttributesCopyWithImpl<$Res, $Val extends MangaAttributes>
       latestUploadedChapter: freezed == latestUploadedChapter
           ? _value.latestUploadedChapter
           : latestUploadedChapter // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as UuidValue?,
       tags: null == tags
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -449,7 +450,7 @@ abstract class _$$MangaAttributesImplCopyWith<$Res>
       bool chapterNumbersResetOnNewVolume,
       @AvailableTranslatedLanguagesConverter()
       List<String?> availableTranslatedLanguages,
-      String? latestUploadedChapter,
+      @UuidConverter() UuidValue? latestUploadedChapter,
       List<Tag> tags,
       State state,
       int version,
@@ -551,7 +552,7 @@ class __$$MangaAttributesImplCopyWithImpl<$Res>
       latestUploadedChapter: freezed == latestUploadedChapter
           ? _value.latestUploadedChapter
           : latestUploadedChapter // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as UuidValue?,
       tags: null == tags
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -595,7 +596,7 @@ class _$MangaAttributesImpl implements _MangaAttributes {
       required this.chapterNumbersResetOnNewVolume,
       @AvailableTranslatedLanguagesConverter()
       required final List<String?> availableTranslatedLanguages,
-      this.latestUploadedChapter,
+      @UuidConverter() this.latestUploadedChapter,
       required final List<Tag> tags,
       required this.state,
       required this.version,
@@ -672,7 +673,8 @@ class _$MangaAttributesImpl implements _MangaAttributes {
   }
 
   @override
-  final String? latestUploadedChapter;
+  @UuidConverter()
+  final UuidValue? latestUploadedChapter;
   final List<Tag> _tags;
   @override
   List<Tag> get tags {
@@ -800,7 +802,7 @@ abstract class _MangaAttributes implements MangaAttributes {
           required final bool chapterNumbersResetOnNewVolume,
           @AvailableTranslatedLanguagesConverter()
           required final List<String?> availableTranslatedLanguages,
-          final String? latestUploadedChapter,
+          @UuidConverter() final UuidValue? latestUploadedChapter,
           required final List<Tag> tags,
           required final State state,
           required final int version,
@@ -841,7 +843,8 @@ abstract class _MangaAttributes implements MangaAttributes {
   @AvailableTranslatedLanguagesConverter()
   List<String?> get availableTranslatedLanguages;
   @override
-  String? get latestUploadedChapter;
+  @UuidConverter()
+  UuidValue? get latestUploadedChapter;
   @override
   List<Tag> get tags;
   @override

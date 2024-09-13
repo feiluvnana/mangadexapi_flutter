@@ -20,7 +20,8 @@ Relationship _$RelationshipFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Relationship {
-  String get id => throw _privateConstructorUsedError;
+  @UuidConverter()
+  UuidValue get id => throw _privateConstructorUsedError;
   RelationshipType get type => throw _privateConstructorUsedError;
   RelationshipRelated? get related => throw _privateConstructorUsedError;
 
@@ -40,7 +41,10 @@ abstract class $RelationshipCopyWith<$Res> {
           Relationship value, $Res Function(Relationship) then) =
       _$RelationshipCopyWithImpl<$Res, Relationship>;
   @useResult
-  $Res call({String id, RelationshipType type, RelationshipRelated? related});
+  $Res call(
+      {@UuidConverter() UuidValue id,
+      RelationshipType type,
+      RelationshipRelated? related});
 }
 
 /// @nodoc
@@ -66,7 +70,7 @@ class _$RelationshipCopyWithImpl<$Res, $Val extends Relationship>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UuidValue,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -87,7 +91,10 @@ abstract class _$$RelationshipImplCopyWith<$Res>
       __$$RelationshipImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, RelationshipType type, RelationshipRelated? related});
+  $Res call(
+      {@UuidConverter() UuidValue id,
+      RelationshipType type,
+      RelationshipRelated? related});
 }
 
 /// @nodoc
@@ -111,7 +118,7 @@ class __$$RelationshipImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UuidValue,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -128,13 +135,14 @@ class __$$RelationshipImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RelationshipImpl implements _Relationship {
   const _$RelationshipImpl(
-      {required this.id, required this.type, this.related});
+      {@UuidConverter() required this.id, required this.type, this.related});
 
   factory _$RelationshipImpl.fromJson(Map<String, dynamic> json) =>
       _$$RelationshipImplFromJson(json);
 
   @override
-  final String id;
+  @UuidConverter()
+  final UuidValue id;
   @override
   final RelationshipType type;
   @override
@@ -177,7 +185,7 @@ class _$RelationshipImpl implements _Relationship {
 
 abstract class _Relationship implements Relationship {
   const factory _Relationship(
-      {required final String id,
+      {@UuidConverter() required final UuidValue id,
       required final RelationshipType type,
       final RelationshipRelated? related}) = _$RelationshipImpl;
 
@@ -185,7 +193,8 @@ abstract class _Relationship implements Relationship {
       _$RelationshipImpl.fromJson;
 
   @override
-  String get id;
+  @UuidConverter()
+  UuidValue get id;
   @override
   RelationshipType get type;
   @override

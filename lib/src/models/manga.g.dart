@@ -45,7 +45,8 @@ _$MangaAttributesImpl _$$MangaAttributesImplFromJson(
       availableTranslatedLanguages:
           const AvailableTranslatedLanguagesConverter()
               .fromJson(json['availableTranslatedLanguages'] as List),
-      latestUploadedChapter: json['latestUploadedChapter'] as String?,
+      latestUploadedChapter: _$JsonConverterFromJson<String, UuidValue>(
+          json['latestUploadedChapter'], const UuidConverter().fromJson),
       tags: (json['tags'] as List<dynamic>)
           .map((e) => Tag.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -77,7 +78,8 @@ Map<String, dynamic> _$$MangaAttributesImplToJson(
       'availableTranslatedLanguages':
           const AvailableTranslatedLanguagesConverter()
               .toJson(instance.availableTranslatedLanguages),
-      'latestUploadedChapter': instance.latestUploadedChapter,
+      'latestUploadedChapter': _$JsonConverterToJson<String, UuidValue>(
+          instance.latestUploadedChapter, const UuidConverter().toJson),
       'tags': instance.tags.map((e) => e.toJson()).toList(),
       'state': _$StateEnumMap[instance.state]!,
       'version': instance.version,
@@ -90,6 +92,7 @@ const _$PublicationDemographicEnumMap = {
   PublicationDemographic.shoujo: 'shoujo',
   PublicationDemographic.josei: 'josei',
   PublicationDemographic.seinen: 'seinen',
+  PublicationDemographic.none: 'none',
 };
 
 const _$StatusEnumMap = {
@@ -106,9 +109,21 @@ const _$ContentRatingEnumMap = {
   ContentRating.pornographic: 'pornographic',
 };
 
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
 const _$StateEnumMap = {
   State.draft: 'draft',
   State.submitted: 'submitted',
   State.published: 'published',
   State.rejected: 'rejected',
 };
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

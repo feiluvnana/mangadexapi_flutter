@@ -43,3 +43,15 @@ Map<String, dynamic> _$$EntityResponseImplToJson<T>(
     <String, dynamic>{
       'data': toJsonT(instance.data),
     };
+
+_$ErrorResponseImpl _$$ErrorResponseImplFromJson(Map<String, dynamic> json) =>
+    _$ErrorResponseImpl(
+      errors: (json['errors'] as List<dynamic>)
+          .map((e) => Error.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$ErrorResponseImplToJson(_$ErrorResponseImpl instance) =>
+    <String, dynamic>{
+      'errors': instance.errors.map((e) => e.toJson()).toList(),
+    };

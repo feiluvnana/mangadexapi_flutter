@@ -20,7 +20,8 @@ Chapter _$ChapterFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Chapter {
-  String get id => throw _privateConstructorUsedError;
+  @UuidConverter()
+  UuidValue get id => throw _privateConstructorUsedError;
   ChapterAttributes get attributes => throw _privateConstructorUsedError;
   List<Relationship> get relationships => throw _privateConstructorUsedError;
 
@@ -39,7 +40,7 @@ abstract class $ChapterCopyWith<$Res> {
       _$ChapterCopyWithImpl<$Res, Chapter>;
   @useResult
   $Res call(
-      {String id,
+      {@UuidConverter() UuidValue id,
       ChapterAttributes attributes,
       List<Relationship> relationships});
 
@@ -69,7 +70,7 @@ class _$ChapterCopyWithImpl<$Res, $Val extends Chapter>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UuidValue,
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -100,7 +101,7 @@ abstract class _$$ChapterImplCopyWith<$Res> implements $ChapterCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {@UuidConverter() UuidValue id,
       ChapterAttributes attributes,
       List<Relationship> relationships});
 
@@ -129,7 +130,7 @@ class __$$ChapterImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UuidValue,
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -146,7 +147,7 @@ class __$$ChapterImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ChapterImpl extends _Chapter {
   _$ChapterImpl(
-      {required this.id,
+      {@UuidConverter() required this.id,
       required this.attributes,
       required final List<Relationship> relationships})
       : _relationships = relationships,
@@ -156,7 +157,8 @@ class _$ChapterImpl extends _Chapter {
       _$$ChapterImplFromJson(json);
 
   @override
-  final String id;
+  @UuidConverter()
+  final UuidValue id;
   @override
   final ChapterAttributes attributes;
   final List<Relationship> _relationships;
@@ -207,7 +209,7 @@ class _$ChapterImpl extends _Chapter {
 
 abstract class _Chapter extends Chapter {
   factory _Chapter(
-      {required final String id,
+      {@UuidConverter() required final UuidValue id,
       required final ChapterAttributes attributes,
       required final List<Relationship> relationships}) = _$ChapterImpl;
   _Chapter._() : super._();
@@ -215,7 +217,8 @@ abstract class _Chapter extends Chapter {
   factory _Chapter.fromJson(Map<String, dynamic> json) = _$ChapterImpl.fromJson;
 
   @override
-  String get id;
+  @UuidConverter()
+  UuidValue get id;
   @override
   ChapterAttributes get attributes;
   @override
@@ -240,7 +243,8 @@ mixin _$ChapterAttributes {
   String? get chapter => throw _privateConstructorUsedError;
   int get pages => throw _privateConstructorUsedError;
   String get translatedLanguage => throw _privateConstructorUsedError;
-  String? get uploader => throw _privateConstructorUsedError;
+  @UuidConverter()
+  UuidValue? get uploader => throw _privateConstructorUsedError;
   String? get externalUrl => throw _privateConstructorUsedError;
   int get version => throw _privateConstructorUsedError;
   @DateTimeConverter()
@@ -274,7 +278,7 @@ abstract class $ChapterAttributesCopyWith<$Res> {
       String? chapter,
       int pages,
       String translatedLanguage,
-      String? uploader,
+      @UuidConverter() UuidValue? uploader,
       String? externalUrl,
       int version,
       @DateTimeConverter() DateTime createdAt,
@@ -335,7 +339,7 @@ class _$ChapterAttributesCopyWithImpl<$Res, $Val extends ChapterAttributes>
       uploader: freezed == uploader
           ? _value.uploader
           : uploader // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as UuidValue?,
       externalUrl: freezed == externalUrl
           ? _value.externalUrl
           : externalUrl // ignore: cast_nullable_to_non_nullable
@@ -378,7 +382,7 @@ abstract class _$$ChapterAttributesImplCopyWith<$Res>
       String? chapter,
       int pages,
       String translatedLanguage,
-      String? uploader,
+      @UuidConverter() UuidValue? uploader,
       String? externalUrl,
       int version,
       @DateTimeConverter() DateTime createdAt,
@@ -437,7 +441,7 @@ class __$$ChapterAttributesImplCopyWithImpl<$Res>
       uploader: freezed == uploader
           ? _value.uploader
           : uploader // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as UuidValue?,
       externalUrl: freezed == externalUrl
           ? _value.externalUrl
           : externalUrl // ignore: cast_nullable_to_non_nullable
@@ -475,7 +479,7 @@ class _$ChapterAttributesImpl implements _ChapterAttributes {
       this.chapter,
       required this.pages,
       required this.translatedLanguage,
-      this.uploader,
+      @UuidConverter() this.uploader,
       this.externalUrl,
       required this.version,
       @DateTimeConverter() required this.createdAt,
@@ -497,7 +501,8 @@ class _$ChapterAttributesImpl implements _ChapterAttributes {
   @override
   final String translatedLanguage;
   @override
-  final String? uploader;
+  @UuidConverter()
+  final UuidValue? uploader;
   @override
   final String? externalUrl;
   @override
@@ -587,7 +592,7 @@ abstract class _ChapterAttributes implements ChapterAttributes {
           final String? chapter,
           required final int pages,
           required final String translatedLanguage,
-          final String? uploader,
+          @UuidConverter() final UuidValue? uploader,
           final String? externalUrl,
           required final int version,
           @DateTimeConverter() required final DateTime createdAt,
@@ -610,7 +615,8 @@ abstract class _ChapterAttributes implements ChapterAttributes {
   @override
   String get translatedLanguage;
   @override
-  String? get uploader;
+  @UuidConverter()
+  UuidValue? get uploader;
   @override
   String? get externalUrl;
   @override

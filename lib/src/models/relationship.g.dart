@@ -8,7 +8,7 @@ part of 'relationship.dart';
 
 _$RelationshipImpl _$$RelationshipImplFromJson(Map<String, dynamic> json) =>
     _$RelationshipImpl(
-      id: json['id'] as String,
+      id: const UuidConverter().fromJson(json['id'] as String),
       type: $enumDecode(_$RelationshipTypeEnumMap, json['type']),
       related:
           $enumDecodeNullable(_$RelationshipRelatedEnumMap, json['related']),
@@ -16,7 +16,7 @@ _$RelationshipImpl _$$RelationshipImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$RelationshipImplToJson(_$RelationshipImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'id': const UuidConverter().toJson(instance.id),
       'type': _$RelationshipTypeEnumMap[instance.type]!,
       'related': _$RelationshipRelatedEnumMap[instance.related],
     };

@@ -7,7 +7,7 @@ part of 'cover.dart';
 // **************************************************************************
 
 _$CoverImpl _$$CoverImplFromJson(Map<String, dynamic> json) => _$CoverImpl(
-      id: json['id'] as String,
+      id: const UuidConverter().fromJson(json['id'] as String),
       attributes:
           CoverAttributes.fromJson(json['attributes'] as Map<String, dynamic>),
       relationships: (json['relationships'] as List<dynamic>)
@@ -17,7 +17,7 @@ _$CoverImpl _$$CoverImplFromJson(Map<String, dynamic> json) => _$CoverImpl(
 
 Map<String, dynamic> _$$CoverImplToJson(_$CoverImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'id': const UuidConverter().toJson(instance.id),
       'attributes': instance.attributes.toJson(),
       'relationships': instance.relationships.map((e) => e.toJson()).toList(),
     };

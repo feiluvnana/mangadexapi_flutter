@@ -20,7 +20,8 @@ Tag _$TagFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Tag {
-  String get id => throw _privateConstructorUsedError;
+  @UuidConverter()
+  UuidValue get id => throw _privateConstructorUsedError;
   TagAttributes get attributes => throw _privateConstructorUsedError;
   List<Relationship> get relationships => throw _privateConstructorUsedError;
 
@@ -39,7 +40,9 @@ abstract class $TagCopyWith<$Res> {
       _$TagCopyWithImpl<$Res, Tag>;
   @useResult
   $Res call(
-      {String id, TagAttributes attributes, List<Relationship> relationships});
+      {@UuidConverter() UuidValue id,
+      TagAttributes attributes,
+      List<Relationship> relationships});
 
   $TagAttributesCopyWith<$Res> get attributes;
 }
@@ -66,7 +69,7 @@ class _$TagCopyWithImpl<$Res, $Val extends Tag> implements $TagCopyWith<$Res> {
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UuidValue,
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -96,7 +99,9 @@ abstract class _$$TagImplCopyWith<$Res> implements $TagCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id, TagAttributes attributes, List<Relationship> relationships});
+      {@UuidConverter() UuidValue id,
+      TagAttributes attributes,
+      List<Relationship> relationships});
 
   @override
   $TagAttributesCopyWith<$Res> get attributes;
@@ -121,7 +126,7 @@ class __$$TagImplCopyWithImpl<$Res> extends _$TagCopyWithImpl<$Res, _$TagImpl>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UuidValue,
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -138,7 +143,7 @@ class __$$TagImplCopyWithImpl<$Res> extends _$TagCopyWithImpl<$Res, _$TagImpl>
 @JsonSerializable()
 class _$TagImpl implements _Tag {
   const _$TagImpl(
-      {required this.id,
+      {@UuidConverter() required this.id,
       required this.attributes,
       required final List<Relationship> relationships})
       : _relationships = relationships;
@@ -147,7 +152,8 @@ class _$TagImpl implements _Tag {
       _$$TagImplFromJson(json);
 
   @override
-  final String id;
+  @UuidConverter()
+  final UuidValue id;
   @override
   final TagAttributes attributes;
   final List<Relationship> _relationships;
@@ -198,14 +204,15 @@ class _$TagImpl implements _Tag {
 
 abstract class _Tag implements Tag {
   const factory _Tag(
-      {required final String id,
+      {@UuidConverter() required final UuidValue id,
       required final TagAttributes attributes,
       required final List<Relationship> relationships}) = _$TagImpl;
 
   factory _Tag.fromJson(Map<String, dynamic> json) = _$TagImpl.fromJson;
 
   @override
-  String get id;
+  @UuidConverter()
+  UuidValue get id;
   @override
   TagAttributes get attributes;
   @override

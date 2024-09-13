@@ -11,7 +11,7 @@ class Constant {
   ];
   static const mangaFeedIncludeFutureUpdatesDefault = "1";
   static const mangaFeedLimitDefault = 100;
-  static const mangaFeedOrderDefault = Order();
+  static const mangaFeedOrderDefault = ChapterOrder();
 
   static const mangasLimitDefault = 10;
   static const mangasIncludedTagsModeDefault = CludeMode.AND;
@@ -21,7 +21,7 @@ class Constant {
     ContentRating.suggestive,
     ContentRating.erotica
   ];
-  static const mangasOrderDefault = Order();
+  static const mangasOrderDefault = MangaOrder();
 
   static const mangaRandomContentRatingDefault = [
     ContentRating.safe,

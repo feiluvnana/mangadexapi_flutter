@@ -20,7 +20,8 @@ Author _$AuthorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Author {
-  String get id => throw _privateConstructorUsedError;
+  @UuidConverter()
+  UuidValue get id => throw _privateConstructorUsedError;
   AuthorAttributes get attributes => throw _privateConstructorUsedError;
   List<Relationship> get relationships => throw _privateConstructorUsedError;
 
@@ -39,7 +40,7 @@ abstract class $AuthorCopyWith<$Res> {
       _$AuthorCopyWithImpl<$Res, Author>;
   @useResult
   $Res call(
-      {String id,
+      {@UuidConverter() UuidValue id,
       AuthorAttributes attributes,
       List<Relationship> relationships});
 
@@ -69,7 +70,7 @@ class _$AuthorCopyWithImpl<$Res, $Val extends Author>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UuidValue,
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -100,7 +101,7 @@ abstract class _$$AuthorImplCopyWith<$Res> implements $AuthorCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {@UuidConverter() UuidValue id,
       AuthorAttributes attributes,
       List<Relationship> relationships});
 
@@ -129,7 +130,7 @@ class __$$AuthorImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UuidValue,
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -146,7 +147,7 @@ class __$$AuthorImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AuthorImpl implements _Author {
   const _$AuthorImpl(
-      {required this.id,
+      {@UuidConverter() required this.id,
       required this.attributes,
       required final List<Relationship> relationships})
       : _relationships = relationships;
@@ -155,7 +156,8 @@ class _$AuthorImpl implements _Author {
       _$$AuthorImplFromJson(json);
 
   @override
-  final String id;
+  @UuidConverter()
+  final UuidValue id;
   @override
   final AuthorAttributes attributes;
   final List<Relationship> _relationships;
@@ -206,14 +208,15 @@ class _$AuthorImpl implements _Author {
 
 abstract class _Author implements Author {
   const factory _Author(
-      {required final String id,
+      {@UuidConverter() required final UuidValue id,
       required final AuthorAttributes attributes,
       required final List<Relationship> relationships}) = _$AuthorImpl;
 
   factory _Author.fromJson(Map<String, dynamic> json) = _$AuthorImpl.fromJson;
 
   @override
-  String get id;
+  @UuidConverter()
+  UuidValue get id;
   @override
   AuthorAttributes get attributes;
   @override

@@ -21,19 +21,40 @@ abstract class MangadexClient {
   factory MangadexClient(Dio dio,
       {String? baseUrl, ParseErrorLogger? errorLogger}) = _MangadexClient;
 
+  factory MangadexClient.create() {
+    final dio = Dio();
+    dio.interceptors.add(InterceptorsWrapper(onError: (error, handler) {
+      if (error.response != null) {
+        return handler.reject(error.copyWith(
+            response: Response(
+                data: ErrorResponse.fromJson(error.response!.data),
+                requestOptions: error.response!.requestOptions,
+                statusCode: error.response!.statusCode,
+                statusMessage: error.response!.statusMessage,
+                isRedirect: error.response!.isRedirect,
+                redirects: error.response!.redirects,
+                extra: error.response!.extra,
+                headers: error.response!.headers)));
+      } else {
+        handler.reject(error);
+      }
+    }));
+    return MangadexClient(dio);
+  }
+
   @GET("/manga")
   Future<CollectionResponse<Manga>> mangas({
     @Query("limit") int limit = Constant.mangasLimitDefault,
     @Query("offset") int? offset,
     @Query("title") String? title,
-    @Query("authorOrArtist") Uuid? authorOrArtist,
-    @Query("authors[]") List<String>? authors,
-    @Query("artists[]") List<String>? artists,
+    @Query("authorOrArtist") UuidValue? authorOrArtist,
+    @Query("authors[]") List<UuidValue>? authors,
+    @Query("artists[]") List<UuidValue>? artists,
     @Query("year") int? year,
-    @Query("includedTags[]") List<Uuid>? includedTags,
+    @Query("includedTags[]") List<UuidValue>? includedTags,
     @Query("includedTagsMode")
     CludeMode includedTagsMode = Constant.mangasIncludedTagsModeDefault,
-    @Query("excludedTags[]") List<Uuid>? excludedTags,
+    @Query("excludedTags[]") List<UuidValue>? excludedTags,
     @Query("excludedTagsMode")
     CludeMode excludedTagsMode = Constant.mangasExcludedTagsModeDefault,
     @Query("status[]") List<Status>? status,
@@ -48,7 +69,7 @@ abstract class MangadexClient {
     List<ContentRating> contentRating = Constant.mangasContentRatingDefault,
     @Query("createdAtSince") DateTime? createdAtSince,
     @Query("updatedAtSince") DateTime? updatedAtSince,
-    @Query("order") Order order = Constant.mangasOrderDefault,
+    @Query("order") MangaOrder order = Constant.mangasOrderDefault,
     @Query("hasAvailableChapters") bool? hasAvailableChapters,
     @Query("group") String? group,
   });
@@ -59,7 +80,7 @@ abstract class MangadexClient {
   ///
   /// - `id`: The id of the manga to retrieve.
   @GET("/manga/{id}")
-  Future<EntityResponse<Manga>> manga(@Path("id") Uuid id);
+  Future<EntityResponse<Manga>> manga(@Path("id") UuidValue id);
 
   /// Returns a random manga.
   ///
@@ -144,7 +165,7 @@ abstract class MangadexClient {
       @Query("createdAtSince") DateTime? createdAtSince,
       @Query("updatedAtSince") DateTime? updatedAtSince,
       @Query("publishAtSince") DateTime? publishAtSince,
-      @Query("order") Order order = Constant.mangaFeedOrderDefault,
+      @Query("order") ChapterOrder order = Constant.mangaFeedOrderDefault,
       @Query("includeEmptyPages") int? includeEmptyPages,
       @Query("includeFuturePublishAt") int? includeFuturePublishAt,
       @Query("includeExternalUrl") int? includeExternalUrl});
