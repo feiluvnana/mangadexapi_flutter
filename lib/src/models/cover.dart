@@ -1,4 +1,4 @@
-import 'package:fln_mangadex_api/src/converters/json_converter.dart';
+import 'package:fln_mangadex_api/src/utils/json_converter.dart';
 import 'package:fln_mangadex_api/src/models/relationship.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -26,5 +26,6 @@ class CoverAttributes with _$CoverAttributes {
       @DateTimeConverter() required DateTime createdAt,
       @DateTimeConverter() required DateTime updatedAt}) = _CoverAttributes;
 
-  factory CoverAttributes.fromJson(Map<String, dynamic> json) => _$CoverAttributesFromJson(json);
+  factory CoverAttributes.fromJson(Map<String, dynamic> json) =>
+      _$CoverAttributesFromJson(json);
 }

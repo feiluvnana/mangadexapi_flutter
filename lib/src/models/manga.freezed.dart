@@ -20,7 +20,8 @@ Manga _$MangaFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Manga {
-  String get id => throw _privateConstructorUsedError;
+  @UuidConverter()
+  UuidValue get id => throw _privateConstructorUsedError;
   MangaAttributes get attributes => throw _privateConstructorUsedError;
   List<Relationship> get relationships => throw _privateConstructorUsedError;
 
@@ -39,7 +40,7 @@ abstract class $MangaCopyWith<$Res> {
       _$MangaCopyWithImpl<$Res, Manga>;
   @useResult
   $Res call(
-      {String id,
+      {@UuidConverter() UuidValue id,
       MangaAttributes attributes,
       List<Relationship> relationships});
 
@@ -69,7 +70,7 @@ class _$MangaCopyWithImpl<$Res, $Val extends Manga>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UuidValue,
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -100,7 +101,7 @@ abstract class _$$MangaImplCopyWith<$Res> implements $MangaCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {@UuidConverter() UuidValue id,
       MangaAttributes attributes,
       List<Relationship> relationships});
 
@@ -129,7 +130,7 @@ class __$$MangaImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UuidValue,
       attributes: null == attributes
           ? _value.attributes
           : attributes // ignore: cast_nullable_to_non_nullable
@@ -146,7 +147,7 @@ class __$$MangaImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MangaImpl extends _Manga {
   const _$MangaImpl(
-      {required this.id,
+      {@UuidConverter() required this.id,
       required this.attributes,
       required final List<Relationship> relationships})
       : _relationships = relationships,
@@ -156,7 +157,8 @@ class _$MangaImpl extends _Manga {
       _$$MangaImplFromJson(json);
 
   @override
-  final String id;
+  @UuidConverter()
+  final UuidValue id;
   @override
   final MangaAttributes attributes;
   final List<Relationship> _relationships;
@@ -207,7 +209,7 @@ class _$MangaImpl extends _Manga {
 
 abstract class _Manga extends Manga {
   const factory _Manga(
-      {required final String id,
+      {@UuidConverter() required final UuidValue id,
       required final MangaAttributes attributes,
       required final List<Relationship> relationships}) = _$MangaImpl;
   const _Manga._() : super._();
@@ -215,7 +217,8 @@ abstract class _Manga extends Manga {
   factory _Manga.fromJson(Map<String, dynamic> json) = _$MangaImpl.fromJson;
 
   @override
-  String get id;
+  @UuidConverter()
+  UuidValue get id;
   @override
   MangaAttributes get attributes;
   @override
@@ -243,18 +246,18 @@ mixin _$MangaAttributes {
   String get originalLanguage => throw _privateConstructorUsedError;
   String? get lastVolume => throw _privateConstructorUsedError;
   String? get lastChapter => throw _privateConstructorUsedError;
-  MangaPublicationDemographic? get publicationDemographic =>
+  PublicationDemographic? get publicationDemographic =>
       throw _privateConstructorUsedError;
-  MangaStatus get status => throw _privateConstructorUsedError;
+  Status get status => throw _privateConstructorUsedError;
   int? get year => throw _privateConstructorUsedError;
-  MangaContentRating get contentRating => throw _privateConstructorUsedError;
+  ContentRating get contentRating => throw _privateConstructorUsedError;
   bool get chapterNumbersResetOnNewVolume => throw _privateConstructorUsedError;
   @AvailableTranslatedLanguagesConverter()
   List<String?> get availableTranslatedLanguages =>
       throw _privateConstructorUsedError;
   String? get latestUploadedChapter => throw _privateConstructorUsedError;
   List<Tag> get tags => throw _privateConstructorUsedError;
-  MangaState get state => throw _privateConstructorUsedError;
+  State get state => throw _privateConstructorUsedError;
   int get version => throw _privateConstructorUsedError;
   @DateTimeConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -286,16 +289,16 @@ abstract class $MangaAttributesCopyWith<$Res> {
       String originalLanguage,
       String? lastVolume,
       String? lastChapter,
-      MangaPublicationDemographic? publicationDemographic,
-      MangaStatus status,
+      PublicationDemographic? publicationDemographic,
+      Status status,
       int? year,
-      MangaContentRating contentRating,
+      ContentRating contentRating,
       bool chapterNumbersResetOnNewVolume,
       @AvailableTranslatedLanguagesConverter()
       List<String?> availableTranslatedLanguages,
       String? latestUploadedChapter,
       List<Tag> tags,
-      MangaState state,
+      State state,
       int version,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverter() DateTime updatedAt});
@@ -373,11 +376,11 @@ class _$MangaAttributesCopyWithImpl<$Res, $Val extends MangaAttributes>
       publicationDemographic: freezed == publicationDemographic
           ? _value.publicationDemographic
           : publicationDemographic // ignore: cast_nullable_to_non_nullable
-              as MangaPublicationDemographic?,
+              as PublicationDemographic?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MangaStatus,
+              as Status,
       year: freezed == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
@@ -385,7 +388,7 @@ class _$MangaAttributesCopyWithImpl<$Res, $Val extends MangaAttributes>
       contentRating: null == contentRating
           ? _value.contentRating
           : contentRating // ignore: cast_nullable_to_non_nullable
-              as MangaContentRating,
+              as ContentRating,
       chapterNumbersResetOnNewVolume: null == chapterNumbersResetOnNewVolume
           ? _value.chapterNumbersResetOnNewVolume
           : chapterNumbersResetOnNewVolume // ignore: cast_nullable_to_non_nullable
@@ -405,7 +408,7 @@ class _$MangaAttributesCopyWithImpl<$Res, $Val extends MangaAttributes>
       state: null == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
-              as MangaState,
+              as State,
       version: null == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
@@ -439,16 +442,16 @@ abstract class _$$MangaAttributesImplCopyWith<$Res>
       String originalLanguage,
       String? lastVolume,
       String? lastChapter,
-      MangaPublicationDemographic? publicationDemographic,
-      MangaStatus status,
+      PublicationDemographic? publicationDemographic,
+      Status status,
       int? year,
-      MangaContentRating contentRating,
+      ContentRating contentRating,
       bool chapterNumbersResetOnNewVolume,
       @AvailableTranslatedLanguagesConverter()
       List<String?> availableTranslatedLanguages,
       String? latestUploadedChapter,
       List<Tag> tags,
-      MangaState state,
+      State state,
       int version,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverter() DateTime updatedAt});
@@ -524,11 +527,11 @@ class __$$MangaAttributesImplCopyWithImpl<$Res>
       publicationDemographic: freezed == publicationDemographic
           ? _value.publicationDemographic
           : publicationDemographic // ignore: cast_nullable_to_non_nullable
-              as MangaPublicationDemographic?,
+              as PublicationDemographic?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MangaStatus,
+              as Status,
       year: freezed == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
@@ -536,7 +539,7 @@ class __$$MangaAttributesImplCopyWithImpl<$Res>
       contentRating: null == contentRating
           ? _value.contentRating
           : contentRating // ignore: cast_nullable_to_non_nullable
-              as MangaContentRating,
+              as ContentRating,
       chapterNumbersResetOnNewVolume: null == chapterNumbersResetOnNewVolume
           ? _value.chapterNumbersResetOnNewVolume
           : chapterNumbersResetOnNewVolume // ignore: cast_nullable_to_non_nullable
@@ -556,7 +559,7 @@ class __$$MangaAttributesImplCopyWithImpl<$Res>
       state: null == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
-              as MangaState,
+              as State,
       version: null == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
@@ -649,13 +652,13 @@ class _$MangaAttributesImpl implements _MangaAttributes {
   @override
   final String? lastChapter;
   @override
-  final MangaPublicationDemographic? publicationDemographic;
+  final PublicationDemographic? publicationDemographic;
   @override
-  final MangaStatus status;
+  final Status status;
   @override
   final int? year;
   @override
-  final MangaContentRating contentRating;
+  final ContentRating contentRating;
   @override
   final bool chapterNumbersResetOnNewVolume;
   final List<String?> _availableTranslatedLanguages;
@@ -679,7 +682,7 @@ class _$MangaAttributesImpl implements _MangaAttributes {
   }
 
   @override
-  final MangaState state;
+  final State state;
   @override
   final int version;
   @override
@@ -790,16 +793,16 @@ abstract class _MangaAttributes implements MangaAttributes {
           required final String originalLanguage,
           final String? lastVolume,
           final String? lastChapter,
-          final MangaPublicationDemographic? publicationDemographic,
-          required final MangaStatus status,
+          final PublicationDemographic? publicationDemographic,
+          required final Status status,
           final int? year,
-          required final MangaContentRating contentRating,
+          required final ContentRating contentRating,
           required final bool chapterNumbersResetOnNewVolume,
           @AvailableTranslatedLanguagesConverter()
           required final List<String?> availableTranslatedLanguages,
           final String? latestUploadedChapter,
           required final List<Tag> tags,
-          required final MangaState state,
+          required final State state,
           required final int version,
           @DateTimeConverter() required final DateTime createdAt,
           @DateTimeConverter() required final DateTime updatedAt}) =
@@ -825,13 +828,13 @@ abstract class _MangaAttributes implements MangaAttributes {
   @override
   String? get lastChapter;
   @override
-  MangaPublicationDemographic? get publicationDemographic;
+  PublicationDemographic? get publicationDemographic;
   @override
-  MangaStatus get status;
+  Status get status;
   @override
   int? get year;
   @override
-  MangaContentRating get contentRating;
+  ContentRating get contentRating;
   @override
   bool get chapterNumbersResetOnNewVolume;
   @override
@@ -842,7 +845,7 @@ abstract class _MangaAttributes implements MangaAttributes {
   @override
   List<Tag> get tags;
   @override
-  MangaState get state;
+  State get state;
   @override
   int get version;
   @override

@@ -25,15 +25,55 @@ class _MangadexClient implements MangadexClient {
 
   @override
   Future<CollectionResponse<Manga>> mangas({
-    int limit = MangadexConstant.mangasLimit,
+    int limit = Constant.mangasLimitDefault,
     int? offset,
+    String? title,
+    Uuid? authorOrArtist,
+    List<String>? authors,
+    List<String>? artists,
+    int? year,
+    List<Uuid>? includedTags,
+    CludeMode includedTagsMode = Constant.mangasIncludedTagsModeDefault,
+    List<Uuid>? excludedTags,
+    CludeMode excludedTagsMode = Constant.mangasExcludedTagsModeDefault,
+    List<Status>? status,
+    List<String>? originalLanguage,
+    List<String>? excludeOriginalLanguage,
     List<String>? availableTranslatedLanguage,
+    List<PublicationDemographic>? publicationDemographic,
+    List<String>? ids,
+    List<ContentRating> contentRating = Constant.mangasContentRatingDefault,
+    DateTime? createdAtSince,
+    DateTime? updatedAtSince,
+    Order order = Constant.mangasOrderDefault,
+    bool? hasAvailableChapters,
+    String? group,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'limit': limit,
       r'offset': offset,
+      r'title': title,
+      r'authorOrArtist': authorOrArtist?.toJson(),
+      r'authors[]': authors,
+      r'artists[]': artists,
+      r'year': year,
+      r'includedTags[]': includedTags,
+      r'includedTagsMode': includedTagsMode.name,
+      r'excludedTags[]': excludedTags,
+      r'excludedTagsMode': excludedTagsMode.name,
+      r'status[]': status,
+      r'originalLanguage[]': originalLanguage,
+      r'excludeOriginalLanguage[]': excludeOriginalLanguage,
       r'availableTranslatedLanguage[]': availableTranslatedLanguage,
+      r'publicationDemographic[]': publicationDemographic,
+      r'ids[]': ids,
+      r'contentRating[]': contentRating,
+      r'createdAtSince': createdAtSince?.toIso8601String(),
+      r'updatedAtSince': updatedAtSince?.toIso8601String(),
+      r'order': order.toJson(),
+      r'hasAvailableChapters': hasAvailableChapters,
+      r'group': group,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -57,7 +97,10 @@ class _MangadexClient implements MangadexClient {
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late CollectionResponse<Manga> _value;
     try {
-      _value = await compute(deserializeCollectionResponseManga, _result.data!);
+      _value = CollectionResponse<Manga>.fromJson(
+        _result.data!,
+        (json) => Manga.fromJson(json as Map<String, dynamic>),
+      );
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -66,7 +109,7 @@ class _MangadexClient implements MangadexClient {
   }
 
   @override
-  Future<EntityResponse<Manga>> manga(String id) async {
+  Future<EntityResponse<Manga>> manga(Uuid id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -90,7 +133,10 @@ class _MangadexClient implements MangadexClient {
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late EntityResponse<Manga> _value;
     try {
-      _value = await compute(deserializeEntityResponseManga, _result.data!);
+      _value = EntityResponse<Manga>.fromJson(
+        _result.data!,
+        (json) => Manga.fromJson(json as Map<String, dynamic>),
+      );
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -99,9 +145,23 @@ class _MangadexClient implements MangadexClient {
   }
 
   @override
-  Future<EntityResponse<Manga>> randomManga() async {
+  Future<EntityResponse<Manga>> randomManga({
+    List<ContentRating> contentRating =
+        Constant.mangaRandomContentRatingDefault,
+    List<String>? includedTags,
+    CludeMode includedTagsMode = Constant.mangaRandomIncludedTagsModeDefault,
+    List<String>? excludedTags,
+    CludeMode excludedTagsMode = Constant.mangaRandomExcludedTagsModeDefault,
+  }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'contentRating[]': contentRating,
+      r'includedTags[]': includedTags,
+      r'includedTagsMode': includedTagsMode.name,
+      r'excludedTags[]': excludedTags,
+      r'excludedTagsMode': excludedTagsMode.name,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<EntityResponse<Manga>>(Options(
@@ -123,7 +183,10 @@ class _MangadexClient implements MangadexClient {
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late EntityResponse<Manga> _value;
     try {
-      _value = await compute(deserializeEntityResponseManga, _result.data!);
+      _value = EntityResponse<Manga>.fromJson(
+        _result.data!,
+        (json) => Manga.fromJson(json as Map<String, dynamic>),
+      );
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -156,7 +219,10 @@ class _MangadexClient implements MangadexClient {
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late EntityResponse<Cover> _value;
     try {
-      _value = await compute(deserializeEntityResponseCover, _result.data!);
+      _value = EntityResponse<Cover>.fromJson(
+        _result.data!,
+        (json) => Cover.fromJson(json as Map<String, dynamic>),
+      );
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -189,7 +255,10 @@ class _MangadexClient implements MangadexClient {
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late EntityResponse<Author> _value;
     try {
-      _value = await compute(deserializeEntityResponseAuthor, _result.data!);
+      _value = EntityResponse<Author>.fromJson(
+        _result.data!,
+        (json) => Author.fromJson(json as Map<String, dynamic>),
+      );
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -222,8 +291,10 @@ class _MangadexClient implements MangadexClient {
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late EntityResponse<ScanlationGroup> _value;
     try {
-      _value = await compute(
-          deserializeEntityResponseScanlationGroup, _result.data!);
+      _value = EntityResponse<ScanlationGroup>.fromJson(
+        _result.data!,
+        (json) => ScanlationGroup.fromJson(json as Map<String, dynamic>),
+      );
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -234,17 +305,41 @@ class _MangadexClient implements MangadexClient {
   @override
   Future<CollectionResponse<Chapter>> mangaFeed(
     String id, {
-    int limit = MangadexConstant.mangaFeedLimit,
+    int limit = Constant.mangaFeedLimitDefault,
     int? offset,
     List<String>? translatedLanguage,
-    Map<String, dynamic>? order,
+    List<String>? originalLanguage,
+    List<String>? excludeOriginalLanguage,
+    List<ContentRating> contentRating = Constant.mangaFeedContentRatingDefault,
+    List<String>? excludeGroups,
+    List<String>? excludedUploaders,
+    String includeFutureUpdates = Constant.mangaFeedIncludeFutureUpdatesDefault,
+    DateTime? createdAtSince,
+    DateTime? updatedAtSince,
+    DateTime? publishAtSince,
+    Order order = Constant.mangaFeedOrderDefault,
+    int? includeEmptyPages,
+    int? includeFuturePublishAt,
+    int? includeExternalUrl,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'limit': limit,
       r'offset': offset,
       r'translatedLanguage[]': translatedLanguage,
-      r'order': order,
+      r'originalLanguage[]': originalLanguage,
+      r'excludeOriginalLanguage[]': excludeOriginalLanguage,
+      r'contentRating[]': contentRating,
+      r'excludeGroups[]': excludeGroups,
+      r'excludedUploaders[]': excludedUploaders,
+      r'includeFutureUpdates': includeFutureUpdates,
+      r'createdAtSince': createdAtSince?.toIso8601String(),
+      r'updatedAtSince': updatedAtSince?.toIso8601String(),
+      r'publishAtSince': publishAtSince?.toIso8601String(),
+      r'order': order.toJson(),
+      r'includeEmptyPages': includeEmptyPages,
+      r'includeFuturePublishAt': includeFuturePublishAt,
+      r'includeExternalUrl': includeExternalUrl,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -268,8 +363,10 @@ class _MangadexClient implements MangadexClient {
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late CollectionResponse<Chapter> _value;
     try {
-      _value =
-          await compute(deserializeCollectionResponseChapter, _result.data!);
+      _value = CollectionResponse<Chapter>.fromJson(
+        _result.data!,
+        (json) => Chapter.fromJson(json as Map<String, dynamic>),
+      );
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -278,9 +375,12 @@ class _MangadexClient implements MangadexClient {
   }
 
   @override
-  Future<AtHome> atHome(String chapterId) async {
+  Future<AtHome> atHome(
+    String chapterId, {
+    bool forcePort443 = Constant.atHomeForcePort443Default,
+  }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'forcePort443': forcePort443};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<AtHome>(Options(
@@ -302,7 +402,7 @@ class _MangadexClient implements MangadexClient {
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late AtHome _value;
     try {
-      _value = await compute(deserializeAtHome, _result.data!);
+      _value = AtHome.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

@@ -1,5 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:fln_mangadex_api/src/converters/json_converter.dart';
+import 'package:fln_mangadex_api/src/utils/json_converter.dart';
 import 'package:fln_mangadex_api/src/models/relationship.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -10,15 +10,17 @@ part 'chapter.g.dart';
 class Chapter with _$Chapter {
   const Chapter._();
 
-  String? get scanlationGroupId =>
-      relationships.firstWhereOrNull((r) => r.type == RelationshipType.scanlation_group)?.id;
+  String? get scanlationGroupId => relationships
+      .firstWhereOrNull((r) => r.type == RelationshipType.scanlation_group)
+      ?.id;
 
   factory Chapter(
       {required String id,
       required ChapterAttributes attributes,
       required List<Relationship> relationships}) = _Chapter;
 
-  factory Chapter.fromJson(Map<String, dynamic> json) => _$ChapterFromJson(json);
+  factory Chapter.fromJson(Map<String, dynamic> json) =>
+      _$ChapterFromJson(json);
 }
 
 @freezed

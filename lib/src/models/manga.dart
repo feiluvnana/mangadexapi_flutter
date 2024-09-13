@@ -1,10 +1,12 @@
 // ignore_for_file: unused_element
 
 import 'package:collection/collection.dart';
-import 'package:fln_mangadex_api/src/converters/json_converter.dart';
+import 'package:fln_mangadex_api/src/utils/json_converter.dart';
+import 'package:fln_mangadex_api/src/utils/enums.dart';
 import 'package:fln_mangadex_api/src/models/relationship.dart';
 import 'package:fln_mangadex_api/src/models/tag.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:uuid/uuid.dart';
 
 part 'manga.freezed.dart';
 part 'manga.g.dart';
@@ -13,13 +15,15 @@ part 'manga.g.dart';
 class Manga with _$Manga {
   const Manga._();
 
-  String? get coverId =>
-      relationships.firstWhereOrNull((r) => r.type == RelationshipType.cover_art)?.id;
-  String? get authorId =>
-      relationships.firstWhereOrNull((r) => r.type == RelationshipType.author)?.id;
+  String? get coverId => relationships
+      .firstWhereOrNull((r) => r.type == RelationshipType.cover_art)
+      ?.id;
+  String? get authorId => relationships
+      .firstWhereOrNull((r) => r.type == RelationshipType.author)
+      ?.id;
 
   const factory Manga(
-      {required String id,
+      {@UuidConverter() required UuidValue id,
       required MangaAttributes attributes,
       required List<Relationship> relationships}) = _Manga;
 
@@ -37,26 +41,20 @@ class MangaAttributes with _$MangaAttributes {
       required String originalLanguage,
       String? lastVolume,
       String? lastChapter,
-      MangaPublicationDemographic? publicationDemographic,
-      required MangaStatus status,
+      PublicationDemographic? publicationDemographic,
+      required Status status,
       int? year,
-      required MangaContentRating contentRating,
+      required ContentRating contentRating,
       required bool chapterNumbersResetOnNewVolume,
-      @AvailableTranslatedLanguagesConverter() required List<String?> availableTranslatedLanguages,
+      @AvailableTranslatedLanguagesConverter()
+      required List<String?> availableTranslatedLanguages,
       String? latestUploadedChapter,
       required List<Tag> tags,
-      required MangaState state,
+      required State state,
       required int version,
       @DateTimeConverter() required DateTime createdAt,
       @DateTimeConverter() required DateTime updatedAt}) = _MangaAttributes;
 
-  factory MangaAttributes.fromJson(Map<String, dynamic> json) => _$MangaAttributesFromJson(json);
+  factory MangaAttributes.fromJson(Map<String, dynamic> json) =>
+      _$MangaAttributesFromJson(json);
 }
-
-enum MangaPublicationDemographic { shounen, shoujo, josei, seinen }
-
-enum MangaStatus { completed, ongoing, cancelled, hiatus }
-
-enum MangaContentRating { safe, suggestive, erotica, pornographic }
-
-enum MangaState { draft, submitted, published, rejected }

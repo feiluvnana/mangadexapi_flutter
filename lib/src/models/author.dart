@@ -1,4 +1,4 @@
-import 'package:fln_mangadex_api/src/converters/json_converter.dart';
+import 'package:fln_mangadex_api/src/utils/json_converter.dart';
 import 'package:fln_mangadex_api/src/models/relationship.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -39,5 +39,6 @@ class AuthorAttributes with _$AuthorAttributes {
       @DateTimeConverter() required DateTime createdAt,
       @DateTimeConverter() required DateTime updatedAt}) = _AuthorAttributes;
 
-  factory AuthorAttributes.fromJson(Map<String, dynamic> json) => _$AuthorAttributesFromJson(json);
+  factory AuthorAttributes.fromJson(Map<String, dynamic> json) =>
+      _$AuthorAttributesFromJson(json);
 }

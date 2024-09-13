@@ -7,7 +7,7 @@ part of 'manga.dart';
 // **************************************************************************
 
 _$MangaImpl _$$MangaImplFromJson(Map<String, dynamic> json) => _$MangaImpl(
-      id: json['id'] as String,
+      id: const UuidConverter().fromJson(json['id'] as String),
       attributes:
           MangaAttributes.fromJson(json['attributes'] as Map<String, dynamic>),
       relationships: (json['relationships'] as List<dynamic>)
@@ -17,7 +17,7 @@ _$MangaImpl _$$MangaImplFromJson(Map<String, dynamic> json) => _$MangaImpl(
 
 Map<String, dynamic> _$$MangaImplToJson(_$MangaImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'id': const UuidConverter().toJson(instance.id),
       'attributes': instance.attributes.toJson(),
       'relationships': instance.relationships.map((e) => e.toJson()).toList(),
     };
@@ -36,11 +36,10 @@ _$MangaAttributesImpl _$$MangaAttributesImplFromJson(
       lastVolume: json['lastVolume'] as String?,
       lastChapter: json['lastChapter'] as String?,
       publicationDemographic: $enumDecodeNullable(
-          _$MangaPublicationDemographicEnumMap, json['publicationDemographic']),
-      status: $enumDecode(_$MangaStatusEnumMap, json['status']),
+          _$PublicationDemographicEnumMap, json['publicationDemographic']),
+      status: $enumDecode(_$StatusEnumMap, json['status']),
       year: (json['year'] as num?)?.toInt(),
-      contentRating:
-          $enumDecode(_$MangaContentRatingEnumMap, json['contentRating']),
+      contentRating: $enumDecode(_$ContentRatingEnumMap, json['contentRating']),
       chapterNumbersResetOnNewVolume:
           json['chapterNumbersResetOnNewVolume'] as bool,
       availableTranslatedLanguages:
@@ -50,7 +49,7 @@ _$MangaAttributesImpl _$$MangaAttributesImplFromJson(
       tags: (json['tags'] as List<dynamic>)
           .map((e) => Tag.fromJson(e as Map<String, dynamic>))
           .toList(),
-      state: $enumDecode(_$MangaStateEnumMap, json['state']),
+      state: $enumDecode(_$StateEnumMap, json['state']),
       version: (json['version'] as num).toInt(),
       createdAt:
           const DateTimeConverter().fromJson(json['createdAt'] as String),
@@ -70,46 +69,46 @@ Map<String, dynamic> _$$MangaAttributesImplToJson(
       'lastVolume': instance.lastVolume,
       'lastChapter': instance.lastChapter,
       'publicationDemographic':
-          _$MangaPublicationDemographicEnumMap[instance.publicationDemographic],
-      'status': _$MangaStatusEnumMap[instance.status]!,
+          _$PublicationDemographicEnumMap[instance.publicationDemographic],
+      'status': _$StatusEnumMap[instance.status]!,
       'year': instance.year,
-      'contentRating': _$MangaContentRatingEnumMap[instance.contentRating]!,
+      'contentRating': _$ContentRatingEnumMap[instance.contentRating]!,
       'chapterNumbersResetOnNewVolume': instance.chapterNumbersResetOnNewVolume,
       'availableTranslatedLanguages':
           const AvailableTranslatedLanguagesConverter()
               .toJson(instance.availableTranslatedLanguages),
       'latestUploadedChapter': instance.latestUploadedChapter,
       'tags': instance.tags.map((e) => e.toJson()).toList(),
-      'state': _$MangaStateEnumMap[instance.state]!,
+      'state': _$StateEnumMap[instance.state]!,
       'version': instance.version,
       'createdAt': const DateTimeConverter().toJson(instance.createdAt),
       'updatedAt': const DateTimeConverter().toJson(instance.updatedAt),
     };
 
-const _$MangaPublicationDemographicEnumMap = {
-  MangaPublicationDemographic.shounen: 'shounen',
-  MangaPublicationDemographic.shoujo: 'shoujo',
-  MangaPublicationDemographic.josei: 'josei',
-  MangaPublicationDemographic.seinen: 'seinen',
+const _$PublicationDemographicEnumMap = {
+  PublicationDemographic.shounen: 'shounen',
+  PublicationDemographic.shoujo: 'shoujo',
+  PublicationDemographic.josei: 'josei',
+  PublicationDemographic.seinen: 'seinen',
 };
 
-const _$MangaStatusEnumMap = {
-  MangaStatus.completed: 'completed',
-  MangaStatus.ongoing: 'ongoing',
-  MangaStatus.cancelled: 'cancelled',
-  MangaStatus.hiatus: 'hiatus',
+const _$StatusEnumMap = {
+  Status.completed: 'completed',
+  Status.ongoing: 'ongoing',
+  Status.cancelled: 'cancelled',
+  Status.hiatus: 'hiatus',
 };
 
-const _$MangaContentRatingEnumMap = {
-  MangaContentRating.safe: 'safe',
-  MangaContentRating.suggestive: 'suggestive',
-  MangaContentRating.erotica: 'erotica',
-  MangaContentRating.pornographic: 'pornographic',
+const _$ContentRatingEnumMap = {
+  ContentRating.safe: 'safe',
+  ContentRating.suggestive: 'suggestive',
+  ContentRating.erotica: 'erotica',
+  ContentRating.pornographic: 'pornographic',
 };
 
-const _$MangaStateEnumMap = {
-  MangaState.draft: 'draft',
-  MangaState.submitted: 'submitted',
-  MangaState.published: 'published',
-  MangaState.rejected: 'rejected',
+const _$StateEnumMap = {
+  State.draft: 'draft',
+  State.submitted: 'submitted',
+  State.published: 'published',
+  State.rejected: 'rejected',
 };
