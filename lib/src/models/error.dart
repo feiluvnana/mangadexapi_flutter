@@ -1,4 +1,4 @@
-import 'package:fln_mangadex_api/src/utils/json_converter.dart';
+import 'package:fln_mangadex_api/src/utils/converter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uuid/uuid.dart';
 

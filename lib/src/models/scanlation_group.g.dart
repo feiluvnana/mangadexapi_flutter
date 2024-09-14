@@ -30,7 +30,8 @@ _$ScanlationGroupAttributesImpl _$$ScanlationGroupAttributesImplFromJson(
     _$ScanlationGroupAttributesImpl(
       name: json['name'] as String,
       altNames: (json['altNames'] as List<dynamic>)
-          .map((e) => Map<String, String>.from(e as Map))
+          .map((e) => const LocalizedStringConverter()
+              .fromJson(e as Map<String, dynamic>))
           .toList(),
       website: json['website'] as String?,
       ircServer: json['ircServer'] as String?,
@@ -41,7 +42,7 @@ _$ScanlationGroupAttributesImpl _$$ScanlationGroupAttributesImplFromJson(
       twitter: json['twitter'] as String?,
       mangaUpdates: json['mangaUpdates'] as String?,
       focusedLanguage: (json['focusedLanguage'] as List<dynamic>?)
-          ?.map((e) => e as String)
+          ?.map((e) => const LanguageCodeConverter().fromJson(e as String))
           .toList(),
       locked: json['locked'] as bool,
       official: json['official'] as bool,
@@ -60,7 +61,9 @@ Map<String, dynamic> _$$ScanlationGroupAttributesImplToJson(
         _$ScanlationGroupAttributesImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'altNames': instance.altNames,
+      'altNames': instance.altNames
+          .map(const LocalizedStringConverter().toJson)
+          .toList(),
       'website': instance.website,
       'ircServer': instance.ircServer,
       'ircChannel': instance.ircChannel,
@@ -69,7 +72,9 @@ Map<String, dynamic> _$$ScanlationGroupAttributesImplToJson(
       'description': instance.description,
       'twitter': instance.twitter,
       'mangaUpdates': instance.mangaUpdates,
-      'focusedLanguage': instance.focusedLanguage,
+      'focusedLanguage': instance.focusedLanguage
+          ?.map(const LanguageCodeConverter().toJson)
+          .toList(),
       'locked': instance.locked,
       'official': instance.official,
       'verified': instance.verified,

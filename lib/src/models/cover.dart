@@ -1,17 +1,14 @@
-import 'package:fln_mangadex_api/src/utils/json_converter.dart';
 import 'package:fln_mangadex_api/src/models/relationship.dart';
+import 'package:fln_mangadex_api/src/utils/converter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 part 'cover.freezed.dart';
 part 'cover.g.dart';
 
-/// Represents a cover image in the MangaDex database.
+/// Represents a cover in the MangaDex API.
 ///
-/// This model contains the following properties:
-/// - id: A unique identifier for the cover.
-/// - attributes: A CoverAttributes object containing detailed information about the cover.
-/// - relationships: A list of Relationship objects that represent the relationships between the cover and other entities.
+/// A cover has an id, attributes, and relationships.
 @freezed
 class Cover with _$Cover {
   const factory Cover(
@@ -22,16 +19,10 @@ class Cover with _$Cover {
   factory Cover.fromJson(Map<String, dynamic> json) => _$CoverFromJson(json);
 }
 
-/// Represents the attributes of a cover image in the MangaDex database.
+/// Represents the attributes of a cover in the MangaDex API.
 ///
-/// This model contains the following properties:
-/// - volume: The volume number of the manga.
-/// - fileName: The name of the file containing the cover image.
-/// - description: A description of the cover image.
-/// - locale: The language of the cover image.
-/// - version: The version number of the cover image.
-/// - createdAt: The date and time when the cover image was created.
-/// - updatedAt: The date and time when the cover image was last updated.
+/// Cover attributes include the volume, fileName, description, locale, version,
+/// createdAt, and updatedAt.
 @freezed
 class CoverAttributes with _$CoverAttributes {
   const factory CoverAttributes(

@@ -244,7 +244,8 @@ ScanlationGroupAttributes _$ScanlationGroupAttributesFromJson(
 /// @nodoc
 mixin _$ScanlationGroupAttributes {
   String get name => throw _privateConstructorUsedError;
-  List<Map<String, String>> get altNames => throw _privateConstructorUsedError;
+  @LocalizedStringConverter()
+  List<LocalizedString> get altNames => throw _privateConstructorUsedError;
   String? get website => throw _privateConstructorUsedError;
   String? get ircServer => throw _privateConstructorUsedError;
   String? get ircChannel => throw _privateConstructorUsedError;
@@ -253,7 +254,8 @@ mixin _$ScanlationGroupAttributes {
   String? get description => throw _privateConstructorUsedError;
   String? get twitter => throw _privateConstructorUsedError;
   String? get mangaUpdates => throw _privateConstructorUsedError;
-  List<String>? get focusedLanguage => throw _privateConstructorUsedError;
+  @LanguageCodeConverter()
+  List<LanguageCode>? get focusedLanguage => throw _privateConstructorUsedError;
   bool get locked => throw _privateConstructorUsedError;
   bool get official => throw _privateConstructorUsedError;
   bool get verified => throw _privateConstructorUsedError;
@@ -284,7 +286,7 @@ abstract class $ScanlationGroupAttributesCopyWith<$Res> {
   @useResult
   $Res call(
       {String name,
-      List<Map<String, String>> altNames,
+      @LocalizedStringConverter() List<LocalizedString> altNames,
       String? website,
       String? ircServer,
       String? ircChannel,
@@ -293,7 +295,7 @@ abstract class $ScanlationGroupAttributesCopyWith<$Res> {
       String? description,
       String? twitter,
       String? mangaUpdates,
-      List<String>? focusedLanguage,
+      @LanguageCodeConverter() List<LanguageCode>? focusedLanguage,
       bool locked,
       bool official,
       bool verified,
@@ -350,7 +352,7 @@ class _$ScanlationGroupAttributesCopyWithImpl<$Res,
       altNames: null == altNames
           ? _value.altNames
           : altNames // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, String>>,
+              as List<LocalizedString>,
       website: freezed == website
           ? _value.website
           : website // ignore: cast_nullable_to_non_nullable
@@ -386,7 +388,7 @@ class _$ScanlationGroupAttributesCopyWithImpl<$Res,
       focusedLanguage: freezed == focusedLanguage
           ? _value.focusedLanguage
           : focusedLanguage // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<LanguageCode>?,
       locked: null == locked
           ? _value.locked
           : locked // ignore: cast_nullable_to_non_nullable
@@ -438,7 +440,7 @@ abstract class _$$ScanlationGroupAttributesImplCopyWith<$Res>
   @useResult
   $Res call(
       {String name,
-      List<Map<String, String>> altNames,
+      @LocalizedStringConverter() List<LocalizedString> altNames,
       String? website,
       String? ircServer,
       String? ircChannel,
@@ -447,7 +449,7 @@ abstract class _$$ScanlationGroupAttributesImplCopyWith<$Res>
       String? description,
       String? twitter,
       String? mangaUpdates,
-      List<String>? focusedLanguage,
+      @LanguageCodeConverter() List<LanguageCode>? focusedLanguage,
       bool locked,
       bool official,
       bool verified,
@@ -503,7 +505,7 @@ class __$$ScanlationGroupAttributesImplCopyWithImpl<$Res>
       altNames: null == altNames
           ? _value._altNames
           : altNames // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, String>>,
+              as List<LocalizedString>,
       website: freezed == website
           ? _value.website
           : website // ignore: cast_nullable_to_non_nullable
@@ -539,7 +541,7 @@ class __$$ScanlationGroupAttributesImplCopyWithImpl<$Res>
       focusedLanguage: freezed == focusedLanguage
           ? _value._focusedLanguage
           : focusedLanguage // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<LanguageCode>?,
       locked: null == locked
           ? _value.locked
           : locked // ignore: cast_nullable_to_non_nullable
@@ -585,7 +587,7 @@ class __$$ScanlationGroupAttributesImplCopyWithImpl<$Res>
 class _$ScanlationGroupAttributesImpl implements _ScanlationGroupAttributes {
   _$ScanlationGroupAttributesImpl(
       {required this.name,
-      required final List<Map<String, String>> altNames,
+      @LocalizedStringConverter() required final List<LocalizedString> altNames,
       this.website,
       this.ircServer,
       this.ircChannel,
@@ -594,7 +596,7 @@ class _$ScanlationGroupAttributesImpl implements _ScanlationGroupAttributes {
       this.description,
       this.twitter,
       this.mangaUpdates,
-      final List<String>? focusedLanguage,
+      @LanguageCodeConverter() final List<LanguageCode>? focusedLanguage,
       required this.locked,
       required this.official,
       required this.verified,
@@ -612,9 +614,10 @@ class _$ScanlationGroupAttributesImpl implements _ScanlationGroupAttributes {
 
   @override
   final String name;
-  final List<Map<String, String>> _altNames;
+  final List<LocalizedString> _altNames;
   @override
-  List<Map<String, String>> get altNames {
+  @LocalizedStringConverter()
+  List<LocalizedString> get altNames {
     if (_altNames is EqualUnmodifiableListView) return _altNames;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_altNames);
@@ -636,9 +639,10 @@ class _$ScanlationGroupAttributesImpl implements _ScanlationGroupAttributes {
   final String? twitter;
   @override
   final String? mangaUpdates;
-  final List<String>? _focusedLanguage;
+  final List<LanguageCode>? _focusedLanguage;
   @override
-  List<String>? get focusedLanguage {
+  @LanguageCodeConverter()
+  List<LanguageCode>? get focusedLanguage {
     final value = _focusedLanguage;
     if (value == null) return null;
     if (_focusedLanguage is EqualUnmodifiableListView) return _focusedLanguage;
@@ -757,27 +761,27 @@ class _$ScanlationGroupAttributesImpl implements _ScanlationGroupAttributes {
 
 abstract class _ScanlationGroupAttributes implements ScanlationGroupAttributes {
   factory _ScanlationGroupAttributes(
-          {required final String name,
-          required final List<Map<String, String>> altNames,
-          final String? website,
-          final String? ircServer,
-          final String? ircChannel,
-          final String? discord,
-          final String? contactEmail,
-          final String? description,
-          final String? twitter,
-          final String? mangaUpdates,
-          final List<String>? focusedLanguage,
-          required final bool locked,
-          required final bool official,
-          required final bool verified,
-          required final bool inactive,
-          final bool? exLicensed,
-          final String? publishDelay,
-          required final int version,
-          @DateTimeConverter() required final DateTime createdAt,
-          @DateTimeConverter() required final DateTime updatedAt}) =
-      _$ScanlationGroupAttributesImpl;
+      {required final String name,
+      @LocalizedStringConverter() required final List<LocalizedString> altNames,
+      final String? website,
+      final String? ircServer,
+      final String? ircChannel,
+      final String? discord,
+      final String? contactEmail,
+      final String? description,
+      final String? twitter,
+      final String? mangaUpdates,
+      @LanguageCodeConverter() final List<LanguageCode>? focusedLanguage,
+      required final bool locked,
+      required final bool official,
+      required final bool verified,
+      required final bool inactive,
+      final bool? exLicensed,
+      final String? publishDelay,
+      required final int version,
+      @DateTimeConverter() required final DateTime createdAt,
+      @DateTimeConverter()
+      required final DateTime updatedAt}) = _$ScanlationGroupAttributesImpl;
 
   factory _ScanlationGroupAttributes.fromJson(Map<String, dynamic> json) =
       _$ScanlationGroupAttributesImpl.fromJson;
@@ -785,7 +789,8 @@ abstract class _ScanlationGroupAttributes implements ScanlationGroupAttributes {
   @override
   String get name;
   @override
-  List<Map<String, String>> get altNames;
+  @LocalizedStringConverter()
+  List<LocalizedString> get altNames;
   @override
   String? get website;
   @override
@@ -803,7 +808,8 @@ abstract class _ScanlationGroupAttributes implements ScanlationGroupAttributes {
   @override
   String? get mangaUpdates;
   @override
-  List<String>? get focusedLanguage;
+  @LanguageCodeConverter()
+  List<LanguageCode>? get focusedLanguage;
   @override
   bool get locked;
   @override

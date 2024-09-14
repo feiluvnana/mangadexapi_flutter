@@ -27,7 +27,8 @@ _$AuthorAttributesImpl _$$AuthorAttributesImplFromJson(
     _$AuthorAttributesImpl(
       name: json['name'] as String,
       imageUrl: json['imageUrl'] as String?,
-      biography: Map<String, String>.from(json['biography'] as Map),
+      biography: const LocalizedStringConverter()
+          .fromJson(json['biography'] as Map<String, dynamic>),
       twitter: json['twitter'] as String?,
       pixiv: json['pixiv'] as String?,
       melonBook: json['melonBook'] as String?,
@@ -54,7 +55,7 @@ Map<String, dynamic> _$$AuthorAttributesImplToJson(
     <String, dynamic>{
       'name': instance.name,
       'imageUrl': instance.imageUrl,
-      'biography': instance.biography,
+      'biography': const LocalizedStringConverter().toJson(instance.biography),
       'twitter': instance.twitter,
       'pixiv': instance.pixiv,
       'melonBook': instance.melonBook,

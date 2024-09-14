@@ -238,7 +238,8 @@ AuthorAttributes _$AuthorAttributesFromJson(Map<String, dynamic> json) {
 mixin _$AuthorAttributes {
   String get name => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
-  Map<String, String> get biography => throw _privateConstructorUsedError;
+  @LocalizedStringConverter()
+  LocalizedString get biography => throw _privateConstructorUsedError;
   String? get twitter => throw _privateConstructorUsedError;
   String? get pixiv => throw _privateConstructorUsedError;
   String? get melonBook => throw _privateConstructorUsedError;
@@ -278,7 +279,7 @@ abstract class $AuthorAttributesCopyWith<$Res> {
   $Res call(
       {String name,
       String? imageUrl,
-      Map<String, String> biography,
+      @LocalizedStringConverter() LocalizedString biography,
       String? twitter,
       String? pixiv,
       String? melonBook,
@@ -346,7 +347,7 @@ class _$AuthorAttributesCopyWithImpl<$Res, $Val extends AuthorAttributes>
       biography: null == biography
           ? _value.biography
           : biography // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as LocalizedString,
       twitter: freezed == twitter
           ? _value.twitter
           : twitter // ignore: cast_nullable_to_non_nullable
@@ -430,7 +431,7 @@ abstract class _$$AuthorAttributesImplCopyWith<$Res>
   $Res call(
       {String name,
       String? imageUrl,
-      Map<String, String> biography,
+      @LocalizedStringConverter() LocalizedString biography,
       String? twitter,
       String? pixiv,
       String? melonBook,
@@ -494,9 +495,9 @@ class __$$AuthorAttributesImplCopyWithImpl<$Res>
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       biography: null == biography
-          ? _value._biography
+          ? _value.biography
           : biography // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as LocalizedString,
       twitter: freezed == twitter
           ? _value.twitter
           : twitter // ignore: cast_nullable_to_non_nullable
@@ -572,10 +573,10 @@ class __$$AuthorAttributesImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AuthorAttributesImpl implements _AuthorAttributes {
-  _$AuthorAttributesImpl(
+  const _$AuthorAttributesImpl(
       {required this.name,
       this.imageUrl,
-      required final Map<String, String> biography,
+      @LocalizedStringConverter() required this.biography,
       this.twitter,
       this.pixiv,
       this.melonBook,
@@ -592,8 +593,7 @@ class _$AuthorAttributesImpl implements _AuthorAttributes {
       this.website,
       required this.version,
       @DateTimeConverter() required this.createdAt,
-      @DateTimeConverter() required this.updatedAt})
-      : _biography = biography;
+      @DateTimeConverter() required this.updatedAt});
 
   factory _$AuthorAttributesImpl.fromJson(Map<String, dynamic> json) =>
       _$$AuthorAttributesImplFromJson(json);
@@ -602,14 +602,9 @@ class _$AuthorAttributesImpl implements _AuthorAttributes {
   final String name;
   @override
   final String? imageUrl;
-  final Map<String, String> _biography;
   @override
-  Map<String, String> get biography {
-    if (_biography is EqualUnmodifiableMapView) return _biography;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_biography);
-  }
-
+  @LocalizedStringConverter()
+  final LocalizedString biography;
   @override
   final String? twitter;
   @override
@@ -660,8 +655,8 @@ class _$AuthorAttributesImpl implements _AuthorAttributes {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
-            const DeepCollectionEquality()
-                .equals(other._biography, _biography) &&
+            (identical(other.biography, biography) ||
+                other.biography == biography) &&
             (identical(other.twitter, twitter) || other.twitter == twitter) &&
             (identical(other.pixiv, pixiv) || other.pixiv == pixiv) &&
             (identical(other.melonBook, melonBook) ||
@@ -692,7 +687,7 @@ class _$AuthorAttributesImpl implements _AuthorAttributes {
         runtimeType,
         name,
         imageUrl,
-        const DeepCollectionEquality().hash(_biography),
+        biography,
         twitter,
         pixiv,
         melonBook,
@@ -730,10 +725,10 @@ class _$AuthorAttributesImpl implements _AuthorAttributes {
 }
 
 abstract class _AuthorAttributes implements AuthorAttributes {
-  factory _AuthorAttributes(
+  const factory _AuthorAttributes(
           {required final String name,
           final String? imageUrl,
-          required final Map<String, String> biography,
+          @LocalizedStringConverter() required final LocalizedString biography,
           final String? twitter,
           final String? pixiv,
           final String? melonBook,
@@ -761,7 +756,8 @@ abstract class _AuthorAttributes implements AuthorAttributes {
   @override
   String? get imageUrl;
   @override
-  Map<String, String> get biography;
+  @LocalizedStringConverter()
+  LocalizedString get biography;
   @override
   String? get twitter;
   @override

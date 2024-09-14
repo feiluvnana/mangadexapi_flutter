@@ -21,10 +21,13 @@ _$AtHomeChapterImpl _$$AtHomeChapterImplFromJson(Map<String, dynamic> json) =>
     _$AtHomeChapterImpl(
       hash: json['hash'] as String,
       data: (json['data'] as List<dynamic>).map((e) => e as String).toList(),
+      dataSaver:
+          (json['dataSaver'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$$AtHomeChapterImplToJson(_$AtHomeChapterImpl instance) =>
     <String, dynamic>{
       'hash': instance.hash,
       'data': instance.data,
+      'dataSaver': instance.dataSaver,
     };

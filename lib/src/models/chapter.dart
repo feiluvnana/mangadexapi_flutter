@@ -1,18 +1,15 @@
 import 'package:collection/collection.dart';
-import 'package:fln_mangadex_api/src/utils/json_converter.dart';
 import 'package:fln_mangadex_api/src/models/relationship.dart';
+import 'package:fln_mangadex_api/src/utils/converter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 part 'chapter.freezed.dart';
 part 'chapter.g.dart';
 
-/// Represents a chapter in the MangaDex database.
+/// Represents a chapter in the MangaDex API.
 ///
-/// This model contains the following properties:
-/// - id: A unique identifier for the chapter.
-/// - attributes: A ChapterAttributes object containing detailed information about the chapter.
-/// - relationships: A list of Relationship objects that represent the relationships between the chapter and other entities.
+/// A chapter has an id, attributes, and relationships.
 @freezed
 class Chapter with _$Chapter {
   const Chapter._();
@@ -30,21 +27,10 @@ class Chapter with _$Chapter {
       _$ChapterFromJson(json);
 }
 
-/// Represents the attributes of a chapter in the MangaDex database.
+/// Represents the attributes of a chapter in the MangaDex API.
 ///
-/// This model contains the following properties:
-/// - title: The title of the chapter.
-/// - volume: The volume number of the chapter.
-/// - chapter: The chapter number.
-/// - pages: The number of pages in the chapter.
-/// - translatedLanguage: The language in which the chapter is translated.
-/// - uploader: The username of the person who uploaded the chapter.
-/// - externalUrl: An optional URL to the chapter's external page.
-/// - version: The version number of the chapter's data.
-/// - createdAt: The date and time when the chapter's data was created.
-/// - updatedAt: The date and time when the chapter's data was last updated.
-/// - publishAt: The date and time when the chapter was published.
-/// - readableAt: The date and time when the chapter was made readable.
+/// Chapter attributes include the title, volume, chapter, pages, translatedLanguage,
+/// uploader, externalUrl, version, createdAt, updatedAt, publishAt, and readableAt.
 @freezed
 class ChapterAttributes with _$ChapterAttributes {
   factory ChapterAttributes(

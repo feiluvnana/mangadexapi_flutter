@@ -23,14 +23,19 @@ Map<String, dynamic> _$$TagImplToJson(_$TagImpl instance) => <String, dynamic>{
 
 _$TagAttributesImpl _$$TagAttributesImplFromJson(Map<String, dynamic> json) =>
     _$TagAttributesImpl(
-      name: Map<String, String>.from(json['name'] as Map),
+      name: const LocalizedStringConverter()
+          .fromJson(json['name'] as Map<String, dynamic>),
+      description: const LocalizedStringConverter()
+          .fromJson(json['description'] as Map<String, dynamic>),
       group: $enumDecode(_$TagGroupEnumMap, json['group']),
       version: (json['version'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$TagAttributesImplToJson(_$TagAttributesImpl instance) =>
     <String, dynamic>{
-      'name': instance.name,
+      'name': const LocalizedStringConverter().toJson(instance.name),
+      'description':
+          const LocalizedStringConverter().toJson(instance.description),
       'group': _$TagGroupEnumMap[instance.group]!,
       'version': instance.version,
     };

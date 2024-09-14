@@ -1,16 +1,5 @@
 library fln_mangadex_api;
 
-/// Exports client
-export "src/client/client.dart" show MangadexClient;
-export "src/client/constant.dart" show Constant;
-
-/// Exports all models
-export "src/models/at_home.dart";
-export "src/models/author.dart";
-export "src/models/chapter.dart";
-export "src/models/cover.dart";
-export "src/models/manga.dart";
-export "src/models/response.dart";
-export "src/models/scanlation_group.dart";
-export "src/models/tag.dart";
-export "src/utils/enums.dart";
+export "src/client/client.dart";
+export "src/models/models.dart";
+export "src/utils/extension.dart";

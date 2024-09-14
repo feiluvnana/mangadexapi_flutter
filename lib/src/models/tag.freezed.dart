@@ -232,8 +232,10 @@ TagAttributes _$TagAttributesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TagAttributes {
-  Map<String, String> get name =>
-      throw _privateConstructorUsedError; // required Map<String, String> description,
+  @LocalizedStringConverter()
+  LocalizedString get name => throw _privateConstructorUsedError;
+  @LocalizedStringConverter()
+  LocalizedString get description => throw _privateConstructorUsedError;
   TagGroup get group => throw _privateConstructorUsedError;
   int get version => throw _privateConstructorUsedError;
 
@@ -253,7 +255,11 @@ abstract class $TagAttributesCopyWith<$Res> {
           TagAttributes value, $Res Function(TagAttributes) then) =
       _$TagAttributesCopyWithImpl<$Res, TagAttributes>;
   @useResult
-  $Res call({Map<String, String> name, TagGroup group, int version});
+  $Res call(
+      {@LocalizedStringConverter() LocalizedString name,
+      @LocalizedStringConverter() LocalizedString description,
+      TagGroup group,
+      int version});
 }
 
 /// @nodoc
@@ -272,6 +278,7 @@ class _$TagAttributesCopyWithImpl<$Res, $Val extends TagAttributes>
   @override
   $Res call({
     Object? name = null,
+    Object? description = null,
     Object? group = null,
     Object? version = null,
   }) {
@@ -279,7 +286,11 @@ class _$TagAttributesCopyWithImpl<$Res, $Val extends TagAttributes>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as LocalizedString,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as LocalizedString,
       group: null == group
           ? _value.group
           : group // ignore: cast_nullable_to_non_nullable
@@ -300,7 +311,11 @@ abstract class _$$TagAttributesImplCopyWith<$Res>
       __$$TagAttributesImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, String> name, TagGroup group, int version});
+  $Res call(
+      {@LocalizedStringConverter() LocalizedString name,
+      @LocalizedStringConverter() LocalizedString description,
+      TagGroup group,
+      int version});
 }
 
 /// @nodoc
@@ -317,14 +332,19 @@ class __$$TagAttributesImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
+    Object? description = null,
     Object? group = null,
     Object? version = null,
   }) {
     return _then(_$TagAttributesImpl(
       name: null == name
-          ? _value._name
+          ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as LocalizedString,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as LocalizedString,
       group: null == group
           ? _value.group
           : group // ignore: cast_nullable_to_non_nullable
@@ -341,23 +361,21 @@ class __$$TagAttributesImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$TagAttributesImpl implements _TagAttributes {
   _$TagAttributesImpl(
-      {required final Map<String, String> name,
+      {@LocalizedStringConverter() required this.name,
+      @LocalizedStringConverter() required this.description,
       required this.group,
       required this.version})
-      : _name = name;
+      : assert(version >= 1, 'Version must be greater than or equal to 1.');
 
   factory _$TagAttributesImpl.fromJson(Map<String, dynamic> json) =>
       _$$TagAttributesImplFromJson(json);
 
-  final Map<String, String> _name;
   @override
-  Map<String, String> get name {
-    if (_name is EqualUnmodifiableMapView) return _name;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_name);
-  }
-
-// required Map<String, String> description,
+  @LocalizedStringConverter()
+  final LocalizedString name;
+  @override
+  @LocalizedStringConverter()
+  final LocalizedString description;
   @override
   final TagGroup group;
   @override
@@ -365,7 +383,7 @@ class _$TagAttributesImpl implements _TagAttributes {
 
   @override
   String toString() {
-    return 'TagAttributes(name: $name, group: $group, version: $version)';
+    return 'TagAttributes(name: $name, description: $description, group: $group, version: $version)';
   }
 
   @override
@@ -373,15 +391,17 @@ class _$TagAttributesImpl implements _TagAttributes {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TagAttributesImpl &&
-            const DeepCollectionEquality().equals(other._name, _name) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.group, group) || other.group == group) &&
             (identical(other.version, version) || other.version == version));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_name), group, version);
+  int get hashCode =>
+      Object.hash(runtimeType, name, description, group, version);
 
   /// Create a copy of TagAttributes
   /// with the given fields replaced by the non-null parameter values.
@@ -401,7 +421,8 @@ class _$TagAttributesImpl implements _TagAttributes {
 
 abstract class _TagAttributes implements TagAttributes {
   factory _TagAttributes(
-      {required final Map<String, String> name,
+      {@LocalizedStringConverter() required final LocalizedString name,
+      @LocalizedStringConverter() required final LocalizedString description,
       required final TagGroup group,
       required final int version}) = _$TagAttributesImpl;
 
@@ -409,7 +430,11 @@ abstract class _TagAttributes implements TagAttributes {
       _$TagAttributesImpl.fromJson;
 
   @override
-  Map<String, String> get name; // required Map<String, String> description,
+  @LocalizedStringConverter()
+  LocalizedString get name;
+  @override
+  @LocalizedStringConverter()
+  LocalizedString get description;
   @override
   TagGroup get group;
   @override

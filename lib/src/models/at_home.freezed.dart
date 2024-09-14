@@ -200,6 +200,7 @@ AtHomeChapter _$AtHomeChapterFromJson(Map<String, dynamic> json) {
 mixin _$AtHomeChapter {
   String get hash => throw _privateConstructorUsedError;
   List<String> get data => throw _privateConstructorUsedError;
+  List<String> get dataSaver => throw _privateConstructorUsedError;
 
   /// Serializes this AtHomeChapter to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -217,7 +218,7 @@ abstract class $AtHomeChapterCopyWith<$Res> {
           AtHomeChapter value, $Res Function(AtHomeChapter) then) =
       _$AtHomeChapterCopyWithImpl<$Res, AtHomeChapter>;
   @useResult
-  $Res call({String hash, List<String> data});
+  $Res call({String hash, List<String> data, List<String> dataSaver});
 }
 
 /// @nodoc
@@ -237,6 +238,7 @@ class _$AtHomeChapterCopyWithImpl<$Res, $Val extends AtHomeChapter>
   $Res call({
     Object? hash = null,
     Object? data = null,
+    Object? dataSaver = null,
   }) {
     return _then(_value.copyWith(
       hash: null == hash
@@ -246,6 +248,10 @@ class _$AtHomeChapterCopyWithImpl<$Res, $Val extends AtHomeChapter>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      dataSaver: null == dataSaver
+          ? _value.dataSaver
+          : dataSaver // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ) as $Val);
   }
@@ -259,7 +265,7 @@ abstract class _$$AtHomeChapterImplCopyWith<$Res>
       __$$AtHomeChapterImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String hash, List<String> data});
+  $Res call({String hash, List<String> data, List<String> dataSaver});
 }
 
 /// @nodoc
@@ -277,6 +283,7 @@ class __$$AtHomeChapterImplCopyWithImpl<$Res>
   $Res call({
     Object? hash = null,
     Object? data = null,
+    Object? dataSaver = null,
   }) {
     return _then(_$AtHomeChapterImpl(
       hash: null == hash
@@ -287,6 +294,10 @@ class __$$AtHomeChapterImplCopyWithImpl<$Res>
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      dataSaver: null == dataSaver
+          ? _value._dataSaver
+          : dataSaver // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -295,8 +306,11 @@ class __$$AtHomeChapterImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AtHomeChapterImpl implements _AtHomeChapter {
   const _$AtHomeChapterImpl(
-      {required this.hash, required final List<String> data})
-      : _data = data;
+      {required this.hash,
+      required final List<String> data,
+      required final List<String> dataSaver})
+      : _data = data,
+        _dataSaver = dataSaver;
 
   factory _$AtHomeChapterImpl.fromJson(Map<String, dynamic> json) =>
       _$$AtHomeChapterImplFromJson(json);
@@ -311,9 +325,17 @@ class _$AtHomeChapterImpl implements _AtHomeChapter {
     return EqualUnmodifiableListView(_data);
   }
 
+  final List<String> _dataSaver;
+  @override
+  List<String> get dataSaver {
+    if (_dataSaver is EqualUnmodifiableListView) return _dataSaver;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_dataSaver);
+  }
+
   @override
   String toString() {
-    return 'AtHomeChapter(hash: $hash, data: $data)';
+    return 'AtHomeChapter(hash: $hash, data: $data, dataSaver: $dataSaver)';
   }
 
   @override
@@ -322,13 +344,18 @@ class _$AtHomeChapterImpl implements _AtHomeChapter {
         (other.runtimeType == runtimeType &&
             other is _$AtHomeChapterImpl &&
             (identical(other.hash, hash) || other.hash == hash) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            const DeepCollectionEquality()
+                .equals(other._dataSaver, _dataSaver));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, hash, const DeepCollectionEquality().hash(_data));
+      runtimeType,
+      hash,
+      const DeepCollectionEquality().hash(_data),
+      const DeepCollectionEquality().hash(_dataSaver));
 
   /// Create a copy of AtHomeChapter
   /// with the given fields replaced by the non-null parameter values.
@@ -349,7 +376,8 @@ class _$AtHomeChapterImpl implements _AtHomeChapter {
 abstract class _AtHomeChapter implements AtHomeChapter {
   const factory _AtHomeChapter(
       {required final String hash,
-      required final List<String> data}) = _$AtHomeChapterImpl;
+      required final List<String> data,
+      required final List<String> dataSaver}) = _$AtHomeChapterImpl;
 
   factory _AtHomeChapter.fromJson(Map<String, dynamic> json) =
       _$AtHomeChapterImpl.fromJson;
@@ -358,6 +386,8 @@ abstract class _AtHomeChapter implements AtHomeChapter {
   String get hash;
   @override
   List<String> get data;
+  @override
+  List<String> get dataSaver;
 
   /// Create a copy of AtHomeChapter
   /// with the given fields replaced by the non-null parameter values.

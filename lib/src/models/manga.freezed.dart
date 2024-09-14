@@ -238,12 +238,16 @@ MangaAttributes _$MangaAttributesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MangaAttributes {
-  Map<String, String> get title => throw _privateConstructorUsedError;
-  List<Map<String, String>> get altTitles => throw _privateConstructorUsedError;
-  Map<String, String> get description => throw _privateConstructorUsedError;
+  @LocalizedStringConverter()
+  LocalizedString get title => throw _privateConstructorUsedError;
+  @LocalizedStringConverter()
+  List<LocalizedString> get altTitles => throw _privateConstructorUsedError;
+  @LocalizedStringConverter()
+  LocalizedString get description => throw _privateConstructorUsedError;
   bool get isLocked => throw _privateConstructorUsedError;
-  Map<String, String> get links => throw _privateConstructorUsedError;
-  String get originalLanguage => throw _privateConstructorUsedError;
+  Links get links => throw _privateConstructorUsedError;
+  @LanguageCodeConverter()
+  LanguageCode get originalLanguage => throw _privateConstructorUsedError;
   String? get lastVolume => throw _privateConstructorUsedError;
   String? get lastChapter => throw _privateConstructorUsedError;
   PublicationDemographic? get publicationDemographic =>
@@ -252,8 +256,8 @@ mixin _$MangaAttributes {
   int? get year => throw _privateConstructorUsedError;
   ContentRating get contentRating => throw _privateConstructorUsedError;
   bool get chapterNumbersResetOnNewVolume => throw _privateConstructorUsedError;
-  @AvailableTranslatedLanguagesConverter()
-  List<String?> get availableTranslatedLanguages =>
+  @NullableLanguageCodeConverter()
+  List<LanguageCode?> get availableTranslatedLanguages =>
       throw _privateConstructorUsedError;
   @UuidConverter()
   UuidValue? get latestUploadedChapter => throw _privateConstructorUsedError;
@@ -282,12 +286,12 @@ abstract class $MangaAttributesCopyWith<$Res> {
       _$MangaAttributesCopyWithImpl<$Res, MangaAttributes>;
   @useResult
   $Res call(
-      {Map<String, String> title,
-      List<Map<String, String>> altTitles,
-      Map<String, String> description,
+      {@LocalizedStringConverter() LocalizedString title,
+      @LocalizedStringConverter() List<LocalizedString> altTitles,
+      @LocalizedStringConverter() LocalizedString description,
       bool isLocked,
-      Map<String, String> links,
-      String originalLanguage,
+      Links links,
+      @LanguageCodeConverter() LanguageCode originalLanguage,
       String? lastVolume,
       String? lastChapter,
       PublicationDemographic? publicationDemographic,
@@ -295,14 +299,16 @@ abstract class $MangaAttributesCopyWith<$Res> {
       int? year,
       ContentRating contentRating,
       bool chapterNumbersResetOnNewVolume,
-      @AvailableTranslatedLanguagesConverter()
-      List<String?> availableTranslatedLanguages,
+      @NullableLanguageCodeConverter()
+      List<LanguageCode?> availableTranslatedLanguages,
       @UuidConverter() UuidValue? latestUploadedChapter,
       List<Tag> tags,
       State state,
       int version,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverter() DateTime updatedAt});
+
+  $LinksCopyWith<$Res> get links;
 }
 
 /// @nodoc
@@ -345,15 +351,15 @@ class _$MangaAttributesCopyWithImpl<$Res, $Val extends MangaAttributes>
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as LocalizedString,
       altTitles: null == altTitles
           ? _value.altTitles
           : altTitles // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, String>>,
+              as List<LocalizedString>,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as LocalizedString,
       isLocked: null == isLocked
           ? _value.isLocked
           : isLocked // ignore: cast_nullable_to_non_nullable
@@ -361,11 +367,11 @@ class _$MangaAttributesCopyWithImpl<$Res, $Val extends MangaAttributes>
       links: null == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as Links,
       originalLanguage: null == originalLanguage
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as LanguageCode,
       lastVolume: freezed == lastVolume
           ? _value.lastVolume
           : lastVolume // ignore: cast_nullable_to_non_nullable
@@ -397,7 +403,7 @@ class _$MangaAttributesCopyWithImpl<$Res, $Val extends MangaAttributes>
       availableTranslatedLanguages: null == availableTranslatedLanguages
           ? _value.availableTranslatedLanguages
           : availableTranslatedLanguages // ignore: cast_nullable_to_non_nullable
-              as List<String?>,
+              as List<LanguageCode?>,
       latestUploadedChapter: freezed == latestUploadedChapter
           ? _value.latestUploadedChapter
           : latestUploadedChapter // ignore: cast_nullable_to_non_nullable
@@ -424,6 +430,16 @@ class _$MangaAttributesCopyWithImpl<$Res, $Val extends MangaAttributes>
               as DateTime,
     ) as $Val);
   }
+
+  /// Create a copy of MangaAttributes
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LinksCopyWith<$Res> get links {
+    return $LinksCopyWith<$Res>(_value.links, (value) {
+      return _then(_value.copyWith(links: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -435,12 +451,12 @@ abstract class _$$MangaAttributesImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Map<String, String> title,
-      List<Map<String, String>> altTitles,
-      Map<String, String> description,
+      {@LocalizedStringConverter() LocalizedString title,
+      @LocalizedStringConverter() List<LocalizedString> altTitles,
+      @LocalizedStringConverter() LocalizedString description,
       bool isLocked,
-      Map<String, String> links,
-      String originalLanguage,
+      Links links,
+      @LanguageCodeConverter() LanguageCode originalLanguage,
       String? lastVolume,
       String? lastChapter,
       PublicationDemographic? publicationDemographic,
@@ -448,14 +464,17 @@ abstract class _$$MangaAttributesImplCopyWith<$Res>
       int? year,
       ContentRating contentRating,
       bool chapterNumbersResetOnNewVolume,
-      @AvailableTranslatedLanguagesConverter()
-      List<String?> availableTranslatedLanguages,
+      @NullableLanguageCodeConverter()
+      List<LanguageCode?> availableTranslatedLanguages,
       @UuidConverter() UuidValue? latestUploadedChapter,
       List<Tag> tags,
       State state,
       int version,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverter() DateTime updatedAt});
+
+  @override
+  $LinksCopyWith<$Res> get links;
 }
 
 /// @nodoc
@@ -494,29 +513,29 @@ class __$$MangaAttributesImplCopyWithImpl<$Res>
   }) {
     return _then(_$MangaAttributesImpl(
       title: null == title
-          ? _value._title
+          ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as LocalizedString,
       altTitles: null == altTitles
           ? _value._altTitles
           : altTitles // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, String>>,
+              as List<LocalizedString>,
       description: null == description
-          ? _value._description
+          ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as LocalizedString,
       isLocked: null == isLocked
           ? _value.isLocked
           : isLocked // ignore: cast_nullable_to_non_nullable
               as bool,
       links: null == links
-          ? _value._links
+          ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as Links,
       originalLanguage: null == originalLanguage
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as LanguageCode,
       lastVolume: freezed == lastVolume
           ? _value.lastVolume
           : lastVolume // ignore: cast_nullable_to_non_nullable
@@ -548,7 +567,7 @@ class __$$MangaAttributesImplCopyWithImpl<$Res>
       availableTranslatedLanguages: null == availableTranslatedLanguages
           ? _value._availableTranslatedLanguages
           : availableTranslatedLanguages // ignore: cast_nullable_to_non_nullable
-              as List<String?>,
+              as List<LanguageCode?>,
       latestUploadedChapter: freezed == latestUploadedChapter
           ? _value.latestUploadedChapter
           : latestUploadedChapter // ignore: cast_nullable_to_non_nullable
@@ -581,12 +600,13 @@ class __$$MangaAttributesImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MangaAttributesImpl implements _MangaAttributes {
   const _$MangaAttributesImpl(
-      {required final Map<String, String> title,
-      required final List<Map<String, String>> altTitles,
-      required final Map<String, String> description,
+      {@LocalizedStringConverter() required this.title,
+      @LocalizedStringConverter()
+      required final List<LocalizedString> altTitles,
+      @LocalizedStringConverter() required this.description,
       required this.isLocked,
-      required final Map<String, String> links,
-      required this.originalLanguage,
+      required this.links,
+      @LanguageCodeConverter() required this.originalLanguage,
       this.lastVolume,
       this.lastChapter,
       this.publicationDemographic,
@@ -594,60 +614,43 @@ class _$MangaAttributesImpl implements _MangaAttributes {
       this.year,
       required this.contentRating,
       required this.chapterNumbersResetOnNewVolume,
-      @AvailableTranslatedLanguagesConverter()
-      required final List<String?> availableTranslatedLanguages,
+      @NullableLanguageCodeConverter()
+      required final List<LanguageCode?> availableTranslatedLanguages,
       @UuidConverter() this.latestUploadedChapter,
       required final List<Tag> tags,
       required this.state,
       required this.version,
       @DateTimeConverter() required this.createdAt,
       @DateTimeConverter() required this.updatedAt})
-      : _title = title,
-        _altTitles = altTitles,
-        _description = description,
-        _links = links,
+      : _altTitles = altTitles,
         _availableTranslatedLanguages = availableTranslatedLanguages,
         _tags = tags;
 
   factory _$MangaAttributesImpl.fromJson(Map<String, dynamic> json) =>
       _$$MangaAttributesImplFromJson(json);
 
-  final Map<String, String> _title;
   @override
-  Map<String, String> get title {
-    if (_title is EqualUnmodifiableMapView) return _title;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_title);
-  }
-
-  final List<Map<String, String>> _altTitles;
+  @LocalizedStringConverter()
+  final LocalizedString title;
+  final List<LocalizedString> _altTitles;
   @override
-  List<Map<String, String>> get altTitles {
+  @LocalizedStringConverter()
+  List<LocalizedString> get altTitles {
     if (_altTitles is EqualUnmodifiableListView) return _altTitles;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_altTitles);
   }
 
-  final Map<String, String> _description;
   @override
-  Map<String, String> get description {
-    if (_description is EqualUnmodifiableMapView) return _description;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_description);
-  }
-
+  @LocalizedStringConverter()
+  final LocalizedString description;
   @override
   final bool isLocked;
-  final Map<String, String> _links;
   @override
-  Map<String, String> get links {
-    if (_links is EqualUnmodifiableMapView) return _links;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_links);
-  }
-
+  final Links links;
   @override
-  final String originalLanguage;
+  @LanguageCodeConverter()
+  final LanguageCode originalLanguage;
   @override
   final String? lastVolume;
   @override
@@ -662,10 +665,10 @@ class _$MangaAttributesImpl implements _MangaAttributes {
   final ContentRating contentRating;
   @override
   final bool chapterNumbersResetOnNewVolume;
-  final List<String?> _availableTranslatedLanguages;
+  final List<LanguageCode?> _availableTranslatedLanguages;
   @override
-  @AvailableTranslatedLanguagesConverter()
-  List<String?> get availableTranslatedLanguages {
+  @NullableLanguageCodeConverter()
+  List<LanguageCode?> get availableTranslatedLanguages {
     if (_availableTranslatedLanguages is EqualUnmodifiableListView)
       return _availableTranslatedLanguages;
     // ignore: implicit_dynamic_type
@@ -704,14 +707,14 @@ class _$MangaAttributesImpl implements _MangaAttributes {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MangaAttributesImpl &&
-            const DeepCollectionEquality().equals(other._title, _title) &&
+            (identical(other.title, title) || other.title == title) &&
             const DeepCollectionEquality()
                 .equals(other._altTitles, _altTitles) &&
-            const DeepCollectionEquality()
-                .equals(other._description, _description) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.isLocked, isLocked) ||
                 other.isLocked == isLocked) &&
-            const DeepCollectionEquality().equals(other._links, _links) &&
+            (identical(other.links, links) || other.links == links) &&
             (identical(other.originalLanguage, originalLanguage) ||
                 other.originalLanguage == originalLanguage) &&
             (identical(other.lastVolume, lastVolume) ||
@@ -746,11 +749,11 @@ class _$MangaAttributesImpl implements _MangaAttributes {
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        const DeepCollectionEquality().hash(_title),
+        title,
         const DeepCollectionEquality().hash(_altTitles),
-        const DeepCollectionEquality().hash(_description),
+        description,
         isLocked,
-        const DeepCollectionEquality().hash(_links),
+        links,
         originalLanguage,
         lastVolume,
         lastChapter,
@@ -787,44 +790,49 @@ class _$MangaAttributesImpl implements _MangaAttributes {
 
 abstract class _MangaAttributes implements MangaAttributes {
   const factory _MangaAttributes(
-          {required final Map<String, String> title,
-          required final List<Map<String, String>> altTitles,
-          required final Map<String, String> description,
-          required final bool isLocked,
-          required final Map<String, String> links,
-          required final String originalLanguage,
-          final String? lastVolume,
-          final String? lastChapter,
-          final PublicationDemographic? publicationDemographic,
-          required final Status status,
-          final int? year,
-          required final ContentRating contentRating,
-          required final bool chapterNumbersResetOnNewVolume,
-          @AvailableTranslatedLanguagesConverter()
-          required final List<String?> availableTranslatedLanguages,
-          @UuidConverter() final UuidValue? latestUploadedChapter,
-          required final List<Tag> tags,
-          required final State state,
-          required final int version,
-          @DateTimeConverter() required final DateTime createdAt,
-          @DateTimeConverter() required final DateTime updatedAt}) =
-      _$MangaAttributesImpl;
+      {@LocalizedStringConverter() required final LocalizedString title,
+      @LocalizedStringConverter()
+      required final List<LocalizedString> altTitles,
+      @LocalizedStringConverter() required final LocalizedString description,
+      required final bool isLocked,
+      required final Links links,
+      @LanguageCodeConverter() required final LanguageCode originalLanguage,
+      final String? lastVolume,
+      final String? lastChapter,
+      final PublicationDemographic? publicationDemographic,
+      required final Status status,
+      final int? year,
+      required final ContentRating contentRating,
+      required final bool chapterNumbersResetOnNewVolume,
+      @NullableLanguageCodeConverter()
+      required final List<LanguageCode?> availableTranslatedLanguages,
+      @UuidConverter() final UuidValue? latestUploadedChapter,
+      required final List<Tag> tags,
+      required final State state,
+      required final int version,
+      @DateTimeConverter() required final DateTime createdAt,
+      @DateTimeConverter()
+      required final DateTime updatedAt}) = _$MangaAttributesImpl;
 
   factory _MangaAttributes.fromJson(Map<String, dynamic> json) =
       _$MangaAttributesImpl.fromJson;
 
   @override
-  Map<String, String> get title;
+  @LocalizedStringConverter()
+  LocalizedString get title;
   @override
-  List<Map<String, String>> get altTitles;
+  @LocalizedStringConverter()
+  List<LocalizedString> get altTitles;
   @override
-  Map<String, String> get description;
+  @LocalizedStringConverter()
+  LocalizedString get description;
   @override
   bool get isLocked;
   @override
-  Map<String, String> get links;
+  Links get links;
   @override
-  String get originalLanguage;
+  @LanguageCodeConverter()
+  LanguageCode get originalLanguage;
   @override
   String? get lastVolume;
   @override
@@ -840,8 +848,8 @@ abstract class _MangaAttributes implements MangaAttributes {
   @override
   bool get chapterNumbersResetOnNewVolume;
   @override
-  @AvailableTranslatedLanguagesConverter()
-  List<String?> get availableTranslatedLanguages;
+  @NullableLanguageCodeConverter()
+  List<LanguageCode?> get availableTranslatedLanguages;
   @override
   @UuidConverter()
   UuidValue? get latestUploadedChapter;

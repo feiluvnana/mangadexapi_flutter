@@ -25,14 +25,18 @@ Map<String, dynamic> _$$MangaImplToJson(_$MangaImpl instance) =>
 _$MangaAttributesImpl _$$MangaAttributesImplFromJson(
         Map<String, dynamic> json) =>
     _$MangaAttributesImpl(
-      title: Map<String, String>.from(json['title'] as Map),
+      title: const LocalizedStringConverter()
+          .fromJson(json['title'] as Map<String, dynamic>),
       altTitles: (json['altTitles'] as List<dynamic>)
-          .map((e) => Map<String, String>.from(e as Map))
+          .map((e) => const LocalizedStringConverter()
+              .fromJson(e as Map<String, dynamic>))
           .toList(),
-      description: Map<String, String>.from(json['description'] as Map),
+      description: const LocalizedStringConverter()
+          .fromJson(json['description'] as Map<String, dynamic>),
       isLocked: json['isLocked'] as bool,
-      links: Map<String, String>.from(json['links'] as Map),
-      originalLanguage: json['originalLanguage'] as String,
+      links: Links.fromJson(json['links'] as Map<String, dynamic>),
+      originalLanguage: const LanguageCodeConverter()
+          .fromJson(json['originalLanguage'] as String),
       lastVolume: json['lastVolume'] as String?,
       lastChapter: json['lastChapter'] as String?,
       publicationDemographic: $enumDecodeNullable(
@@ -43,8 +47,10 @@ _$MangaAttributesImpl _$$MangaAttributesImplFromJson(
       chapterNumbersResetOnNewVolume:
           json['chapterNumbersResetOnNewVolume'] as bool,
       availableTranslatedLanguages:
-          const AvailableTranslatedLanguagesConverter()
-              .fromJson(json['availableTranslatedLanguages'] as List),
+          (json['availableTranslatedLanguages'] as List<dynamic>)
+              .map((e) =>
+                  const NullableLanguageCodeConverter().fromJson(e as String?))
+              .toList(),
       latestUploadedChapter: _$JsonConverterFromJson<String, UuidValue>(
           json['latestUploadedChapter'], const UuidConverter().fromJson),
       tags: (json['tags'] as List<dynamic>)
@@ -61,12 +67,16 @@ _$MangaAttributesImpl _$$MangaAttributesImplFromJson(
 Map<String, dynamic> _$$MangaAttributesImplToJson(
         _$MangaAttributesImpl instance) =>
     <String, dynamic>{
-      'title': instance.title,
-      'altTitles': instance.altTitles,
-      'description': instance.description,
+      'title': const LocalizedStringConverter().toJson(instance.title),
+      'altTitles': instance.altTitles
+          .map(const LocalizedStringConverter().toJson)
+          .toList(),
+      'description':
+          const LocalizedStringConverter().toJson(instance.description),
       'isLocked': instance.isLocked,
-      'links': instance.links,
-      'originalLanguage': instance.originalLanguage,
+      'links': instance.links.toJson(),
+      'originalLanguage':
+          const LanguageCodeConverter().toJson(instance.originalLanguage),
       'lastVolume': instance.lastVolume,
       'lastChapter': instance.lastChapter,
       'publicationDemographic':
@@ -75,9 +85,9 @@ Map<String, dynamic> _$$MangaAttributesImplToJson(
       'year': instance.year,
       'contentRating': _$ContentRatingEnumMap[instance.contentRating]!,
       'chapterNumbersResetOnNewVolume': instance.chapterNumbersResetOnNewVolume,
-      'availableTranslatedLanguages':
-          const AvailableTranslatedLanguagesConverter()
-              .toJson(instance.availableTranslatedLanguages),
+      'availableTranslatedLanguages': instance.availableTranslatedLanguages
+          .map(const NullableLanguageCodeConverter().toJson)
+          .toList(),
       'latestUploadedChapter': _$JsonConverterToJson<String, UuidValue>(
           instance.latestUploadedChapter, const UuidConverter().toJson),
       'tags': instance.tags.map((e) => e.toJson()).toList(),
