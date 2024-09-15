@@ -7,18 +7,18 @@ part of 'links.dart';
 // **************************************************************************
 
 _$LinksImpl _$$LinksImplFromJson(Map<String, dynamic> json) => _$LinksImpl(
-      al: json['al'] as String,
-      ap: json['ap'] as String,
-      bw: json['bw'] as String,
-      mu: json['mu'] as String,
-      nu: json['nu'] as String,
-      kt: json['kt'] as String,
-      amz: json['amz'] as String,
-      ebj: json['ebj'] as String,
-      mal: json['mal'] as String,
-      cdj: json['cdj'] as String,
-      raw: json['raw'] as String,
-      engtl: json['engtl'] as String,
+      al: json['al'] as String?,
+      ap: json['ap'] as String?,
+      bw: json['bw'] as String?,
+      mu: json['mu'] as String?,
+      nu: json['nu'] as String?,
+      kt: json['kt'] as String?,
+      amz: json['amz'] as String?,
+      ebj: json['ebj'] as String?,
+      mal: json['mal'] as String?,
+      cdj: json['cdj'] as String?,
+      raw: json['raw'] as String?,
+      engtl: json['engtl'] as String?,
     );
 
 Map<String, dynamic> _$$LinksImplToJson(_$LinksImpl instance) =>

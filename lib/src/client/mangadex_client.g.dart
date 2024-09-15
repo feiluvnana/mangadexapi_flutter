@@ -25,7 +25,7 @@ class _MangadexClient implements MangadexClient {
 
   @override
   Future<AtHome> atHome(
-    String chapterId, {
+    UuidValue chapterId, {
     bool forcePort443 = Constant.atHomeForcePort443Default,
   }) async {
     final _extra = <String, dynamic>{};
@@ -109,7 +109,7 @@ class _MangadexClient implements MangadexClient {
   }
 
   @override
-  Future<EntityResponse<Author>> author(String id) async {
+  Future<EntityResponse<Author>> author(UuidValue id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -231,7 +231,7 @@ class _MangadexClient implements MangadexClient {
   }
 
   @override
-  Future<EntityResponse<Chapter>> chapter(String id) async {
+  Future<EntityResponse<Chapter>> chapter(UuidValue id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -320,7 +320,7 @@ class _MangadexClient implements MangadexClient {
   }
 
   @override
-  Future<EntityResponse<Cover>> cover(String id) async {
+  Future<EntityResponse<Cover>> cover(UuidValue id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -562,7 +562,7 @@ class _MangadexClient implements MangadexClient {
 
   @override
   Future<CollectionResponse<Chapter>> mangaFeed(
-    String id, {
+    UuidValue id, {
     int limit = Constant.mangaFeedLimitDefault,
     int? offset,
     RetrofitList<LanguageCode>? translatedLanguage,
@@ -670,7 +670,7 @@ class _MangadexClient implements MangadexClient {
   }
 
   @override
-  Future<CollectionResponse<MangaRelation>> mangaRelations(String id) async {
+  Future<CollectionResponse<MangaRelation>> mangaRelations(UuidValue id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -758,7 +758,7 @@ class _MangadexClient implements MangadexClient {
   }
 
   @override
-  Future<EntityResponse<ScanlationGroup>> scanlationGroup(String id) async {
+  Future<EntityResponse<ScanlationGroup>> scanlationGroup(UuidValue id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

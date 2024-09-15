@@ -20,18 +20,18 @@ Links _$LinksFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Links {
-  String get al => throw _privateConstructorUsedError;
-  String get ap => throw _privateConstructorUsedError;
-  String get bw => throw _privateConstructorUsedError;
-  String get mu => throw _privateConstructorUsedError;
-  String get nu => throw _privateConstructorUsedError;
-  String get kt => throw _privateConstructorUsedError;
-  String get amz => throw _privateConstructorUsedError;
-  String get ebj => throw _privateConstructorUsedError;
-  String get mal => throw _privateConstructorUsedError;
-  String get cdj => throw _privateConstructorUsedError;
-  String get raw => throw _privateConstructorUsedError;
-  String get engtl => throw _privateConstructorUsedError;
+  String? get al => throw _privateConstructorUsedError;
+  String? get ap => throw _privateConstructorUsedError;
+  String? get bw => throw _privateConstructorUsedError;
+  String? get mu => throw _privateConstructorUsedError;
+  String? get nu => throw _privateConstructorUsedError;
+  String? get kt => throw _privateConstructorUsedError;
+  String? get amz => throw _privateConstructorUsedError;
+  String? get ebj => throw _privateConstructorUsedError;
+  String? get mal => throw _privateConstructorUsedError;
+  String? get cdj => throw _privateConstructorUsedError;
+  String? get raw => throw _privateConstructorUsedError;
+  String? get engtl => throw _privateConstructorUsedError;
 
   /// Serializes this Links to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -48,18 +48,18 @@ abstract class $LinksCopyWith<$Res> {
       _$LinksCopyWithImpl<$Res, Links>;
   @useResult
   $Res call(
-      {String al,
-      String ap,
-      String bw,
-      String mu,
-      String nu,
-      String kt,
-      String amz,
-      String ebj,
-      String mal,
-      String cdj,
-      String raw,
-      String engtl});
+      {String? al,
+      String? ap,
+      String? bw,
+      String? mu,
+      String? nu,
+      String? kt,
+      String? amz,
+      String? ebj,
+      String? mal,
+      String? cdj,
+      String? raw,
+      String? engtl});
 }
 
 /// @nodoc
@@ -77,68 +77,68 @@ class _$LinksCopyWithImpl<$Res, $Val extends Links>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? al = null,
-    Object? ap = null,
-    Object? bw = null,
-    Object? mu = null,
-    Object? nu = null,
-    Object? kt = null,
-    Object? amz = null,
-    Object? ebj = null,
-    Object? mal = null,
-    Object? cdj = null,
-    Object? raw = null,
-    Object? engtl = null,
+    Object? al = freezed,
+    Object? ap = freezed,
+    Object? bw = freezed,
+    Object? mu = freezed,
+    Object? nu = freezed,
+    Object? kt = freezed,
+    Object? amz = freezed,
+    Object? ebj = freezed,
+    Object? mal = freezed,
+    Object? cdj = freezed,
+    Object? raw = freezed,
+    Object? engtl = freezed,
   }) {
     return _then(_value.copyWith(
-      al: null == al
+      al: freezed == al
           ? _value.al
           : al // ignore: cast_nullable_to_non_nullable
-              as String,
-      ap: null == ap
+              as String?,
+      ap: freezed == ap
           ? _value.ap
           : ap // ignore: cast_nullable_to_non_nullable
-              as String,
-      bw: null == bw
+              as String?,
+      bw: freezed == bw
           ? _value.bw
           : bw // ignore: cast_nullable_to_non_nullable
-              as String,
-      mu: null == mu
+              as String?,
+      mu: freezed == mu
           ? _value.mu
           : mu // ignore: cast_nullable_to_non_nullable
-              as String,
-      nu: null == nu
+              as String?,
+      nu: freezed == nu
           ? _value.nu
           : nu // ignore: cast_nullable_to_non_nullable
-              as String,
-      kt: null == kt
+              as String?,
+      kt: freezed == kt
           ? _value.kt
           : kt // ignore: cast_nullable_to_non_nullable
-              as String,
-      amz: null == amz
+              as String?,
+      amz: freezed == amz
           ? _value.amz
           : amz // ignore: cast_nullable_to_non_nullable
-              as String,
-      ebj: null == ebj
+              as String?,
+      ebj: freezed == ebj
           ? _value.ebj
           : ebj // ignore: cast_nullable_to_non_nullable
-              as String,
-      mal: null == mal
+              as String?,
+      mal: freezed == mal
           ? _value.mal
           : mal // ignore: cast_nullable_to_non_nullable
-              as String,
-      cdj: null == cdj
+              as String?,
+      cdj: freezed == cdj
           ? _value.cdj
           : cdj // ignore: cast_nullable_to_non_nullable
-              as String,
-      raw: null == raw
+              as String?,
+      raw: freezed == raw
           ? _value.raw
           : raw // ignore: cast_nullable_to_non_nullable
-              as String,
-      engtl: null == engtl
+              as String?,
+      engtl: freezed == engtl
           ? _value.engtl
           : engtl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -151,18 +151,18 @@ abstract class _$$LinksImplCopyWith<$Res> implements $LinksCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String al,
-      String ap,
-      String bw,
-      String mu,
-      String nu,
-      String kt,
-      String amz,
-      String ebj,
-      String mal,
-      String cdj,
-      String raw,
-      String engtl});
+      {String? al,
+      String? ap,
+      String? bw,
+      String? mu,
+      String? nu,
+      String? kt,
+      String? amz,
+      String? ebj,
+      String? mal,
+      String? cdj,
+      String? raw,
+      String? engtl});
 }
 
 /// @nodoc
@@ -178,68 +178,68 @@ class __$$LinksImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? al = null,
-    Object? ap = null,
-    Object? bw = null,
-    Object? mu = null,
-    Object? nu = null,
-    Object? kt = null,
-    Object? amz = null,
-    Object? ebj = null,
-    Object? mal = null,
-    Object? cdj = null,
-    Object? raw = null,
-    Object? engtl = null,
+    Object? al = freezed,
+    Object? ap = freezed,
+    Object? bw = freezed,
+    Object? mu = freezed,
+    Object? nu = freezed,
+    Object? kt = freezed,
+    Object? amz = freezed,
+    Object? ebj = freezed,
+    Object? mal = freezed,
+    Object? cdj = freezed,
+    Object? raw = freezed,
+    Object? engtl = freezed,
   }) {
     return _then(_$LinksImpl(
-      al: null == al
+      al: freezed == al
           ? _value.al
           : al // ignore: cast_nullable_to_non_nullable
-              as String,
-      ap: null == ap
+              as String?,
+      ap: freezed == ap
           ? _value.ap
           : ap // ignore: cast_nullable_to_non_nullable
-              as String,
-      bw: null == bw
+              as String?,
+      bw: freezed == bw
           ? _value.bw
           : bw // ignore: cast_nullable_to_non_nullable
-              as String,
-      mu: null == mu
+              as String?,
+      mu: freezed == mu
           ? _value.mu
           : mu // ignore: cast_nullable_to_non_nullable
-              as String,
-      nu: null == nu
+              as String?,
+      nu: freezed == nu
           ? _value.nu
           : nu // ignore: cast_nullable_to_non_nullable
-              as String,
-      kt: null == kt
+              as String?,
+      kt: freezed == kt
           ? _value.kt
           : kt // ignore: cast_nullable_to_non_nullable
-              as String,
-      amz: null == amz
+              as String?,
+      amz: freezed == amz
           ? _value.amz
           : amz // ignore: cast_nullable_to_non_nullable
-              as String,
-      ebj: null == ebj
+              as String?,
+      ebj: freezed == ebj
           ? _value.ebj
           : ebj // ignore: cast_nullable_to_non_nullable
-              as String,
-      mal: null == mal
+              as String?,
+      mal: freezed == mal
           ? _value.mal
           : mal // ignore: cast_nullable_to_non_nullable
-              as String,
-      cdj: null == cdj
+              as String?,
+      cdj: freezed == cdj
           ? _value.cdj
           : cdj // ignore: cast_nullable_to_non_nullable
-              as String,
-      raw: null == raw
+              as String?,
+      raw: freezed == raw
           ? _value.raw
           : raw // ignore: cast_nullable_to_non_nullable
-              as String,
-      engtl: null == engtl
+              as String?,
+      engtl: freezed == engtl
           ? _value.engtl
           : engtl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -248,47 +248,47 @@ class __$$LinksImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$LinksImpl extends _Links {
   const _$LinksImpl(
-      {required this.al,
-      required this.ap,
-      required this.bw,
-      required this.mu,
-      required this.nu,
-      required this.kt,
-      required this.amz,
-      required this.ebj,
-      required this.mal,
-      required this.cdj,
-      required this.raw,
-      required this.engtl})
+      {this.al,
+      this.ap,
+      this.bw,
+      this.mu,
+      this.nu,
+      this.kt,
+      this.amz,
+      this.ebj,
+      this.mal,
+      this.cdj,
+      this.raw,
+      this.engtl})
       : super._();
 
   factory _$LinksImpl.fromJson(Map<String, dynamic> json) =>
       _$$LinksImplFromJson(json);
 
   @override
-  final String al;
+  final String? al;
   @override
-  final String ap;
+  final String? ap;
   @override
-  final String bw;
+  final String? bw;
   @override
-  final String mu;
+  final String? mu;
   @override
-  final String nu;
+  final String? nu;
   @override
-  final String kt;
+  final String? kt;
   @override
-  final String amz;
+  final String? amz;
   @override
-  final String ebj;
+  final String? ebj;
   @override
-  final String mal;
+  final String? mal;
   @override
-  final String cdj;
+  final String? cdj;
   @override
-  final String raw;
+  final String? raw;
   @override
-  final String engtl;
+  final String? engtl;
 
   @override
   String toString() {
@@ -337,46 +337,46 @@ class _$LinksImpl extends _Links {
 
 abstract class _Links extends Links {
   const factory _Links(
-      {required final String al,
-      required final String ap,
-      required final String bw,
-      required final String mu,
-      required final String nu,
-      required final String kt,
-      required final String amz,
-      required final String ebj,
-      required final String mal,
-      required final String cdj,
-      required final String raw,
-      required final String engtl}) = _$LinksImpl;
+      {final String? al,
+      final String? ap,
+      final String? bw,
+      final String? mu,
+      final String? nu,
+      final String? kt,
+      final String? amz,
+      final String? ebj,
+      final String? mal,
+      final String? cdj,
+      final String? raw,
+      final String? engtl}) = _$LinksImpl;
   const _Links._() : super._();
 
   factory _Links.fromJson(Map<String, dynamic> json) = _$LinksImpl.fromJson;
 
   @override
-  String get al;
+  String? get al;
   @override
-  String get ap;
+  String? get ap;
   @override
-  String get bw;
+  String? get bw;
   @override
-  String get mu;
+  String? get mu;
   @override
-  String get nu;
+  String? get nu;
   @override
-  String get kt;
+  String? get kt;
   @override
-  String get amz;
+  String? get amz;
   @override
-  String get ebj;
+  String? get ebj;
   @override
-  String get mal;
+  String? get mal;
   @override
-  String get cdj;
+  String? get cdj;
   @override
-  String get raw;
+  String? get raw;
   @override
-  String get engtl;
+  String? get engtl;
 
   /// Create a copy of Links
   /// with the given fields replaced by the non-null parameter values.

@@ -17,18 +17,18 @@ class Links with _$Links {
   String get cdjLink => "https://www.cdjapan.co.jp/product/$cdj";
 
   const factory Links({
-    required String al,
-    required String ap,
-    required String bw,
-    required String mu,
-    required String nu,
-    required String kt,
-    required String amz,
-    required String ebj,
-    required String mal,
-    required String cdj,
-    required String raw,
-    required String engtl,
+    String? al,
+    String? ap,
+    String? bw,
+    String? mu,
+    String? nu,
+    String? kt,
+    String? amz,
+    String? ebj,
+    String? mal,
+    String? cdj,
+    String? raw,
+    String? engtl,
   }) = _Links;
 
   factory Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
