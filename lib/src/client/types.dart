@@ -1,10 +1,5 @@
 import 'package:fln_mangadex_api/src/models/enums.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'types.freezed.dart';
-part 'types.g.dart';
-
-/// A list of values that can be converted to a JSON string.
 class RetrofitList<T> {
   final List<T> list;
 
@@ -24,68 +19,147 @@ class RetrofitList<T> {
       }).toList();
 }
 
-/// A list of chapter orders.
-@freezed
-class ChapterOrder with _$ChapterOrder {
-  const factory ChapterOrder({
-    @Default(OrderValue.asc) OrderValue createdAt,
-    @Default(OrderValue.asc) OrderValue updatedAt,
-    @Default(OrderValue.asc) OrderValue publishAt,
-    @Default(OrderValue.asc) OrderValue readableAt,
-    @Default(OrderValue.asc) OrderValue volume,
-    @Default(OrderValue.asc) OrderValue chapter,
-  }) = _ChapterOrder;
+class ChapterOrderBuilder {
+  final Map<String, Order> _order = const {};
 
-  factory ChapterOrder.fromJson(Map<String, dynamic> json) =>
-      _$ChapterOrderFromJson(json);
+  const ChapterOrderBuilder();
+
+  ChapterOrderBuilder createdAt(Order value) {
+    _order['createdAt'] = value;
+    return this;
+  }
+
+  ChapterOrderBuilder updatedAt(Order value) {
+    _order['updatedAt'] = value;
+    return this;
+  }
+
+  ChapterOrderBuilder publishAt(Order value) {
+    _order['publishAt'] = value;
+    return this;
+  }
+
+  ChapterOrderBuilder readableAt(Order value) {
+    _order['readableAt'] = value;
+    return this;
+  }
+
+  ChapterOrderBuilder volume(Order value) {
+    _order['volume'] = value;
+    return this;
+  }
+
+  ChapterOrderBuilder chapter(Order value) {
+    _order['chapter'] = value;
+    return this;
+  }
+
+  Map<String, Order> build() => _order;
+
+  Map<String, dynamic> toJson() =>
+      _order.map((key, value) => MapEntry(key, value.name));
 }
 
-@freezed
-class MangaOrder with _$MangaOrder {
-  @JsonSerializable(includeIfNull: false)
-  const factory MangaOrder(
-      {OrderValue? title,
-      OrderValue? year,
-      OrderValue? createdAt,
-      OrderValue? updatedAt,
-      @Default(OrderValue.desc) OrderValue latestUploadedChapter,
-      OrderValue? followedCount,
-      OrderValue? relevance}) = _MangaOrder;
+class MangaOrderBuilder {
+  final Map<String, Order> _order = const {};
 
-  factory MangaOrder.fromJson(Map<String, dynamic> json) =>
-      _$MangaOrderFromJson(json);
+  const MangaOrderBuilder();
+
+  MangaOrderBuilder title(Order value) {
+    _order['title'] = value;
+    return this;
+  }
+
+  MangaOrderBuilder year(Order value) {
+    _order['year'] = value;
+    return this;
+  }
+
+  MangaOrderBuilder createdAt(Order value) {
+    _order['createdAt'] = value;
+    return this;
+  }
+
+  MangaOrderBuilder updatedAt(Order value) {
+    _order['updatedAt'] = value;
+    return this;
+  }
+
+  MangaOrderBuilder latestUploadedChapter(Order value) {
+    _order['latestUploadedChapter'] = value;
+    return this;
+  }
+
+  MangaOrderBuilder followedCount(Order value) {
+    _order['followedCount'] = value;
+    return this;
+  }
+
+  MangaOrderBuilder relevance(Order value) {
+    _order['relevance'] = value;
+    return this;
+  }
+
+  Map<String, Order> build() => _order;
+
+  Map<String, dynamic> toJson() =>
+      _order.map((key, value) => MapEntry(key, value.name));
 }
 
-/// A list of author orders.
-@freezed
-class AuthorOrder with _$AuthorOrder {
-  const factory AuthorOrder({@Default(OrderValue.asc) OrderValue name}) =
-      _AuthorOrder;
+class AuthorOrderBuilder {
+  final Map<String, Order> _order = const {};
 
-  factory AuthorOrder.fromJson(Map<String, dynamic> json) =>
-      _$AuthorOrderFromJson(json);
+  const AuthorOrderBuilder();
+
+  AuthorOrderBuilder name(Order value) {
+    _order['name'] = value;
+    return this;
+  }
+
+  Map<String, Order> build() => _order;
+
+  Map<String, dynamic> toJson() =>
+      _order.map((key, value) => MapEntry(key, value.name));
 }
 
-/// A list of cover orders.
-@freezed
-class CoverOrder with _$CoverOrder {
-  const factory CoverOrder({
-    @Default(OrderValue.asc) OrderValue createdAt,
-    @Default(OrderValue.asc) OrderValue updatedAt,
-    @Default(OrderValue.asc) OrderValue volume,
-  }) = _CoverOrder;
+class CoverOrderBuilder {
+  final Map<String, Order> _order = const {};
 
-  factory CoverOrder.fromJson(Map<String, dynamic> json) =>
-      _$CoverOrderFromJson(json);
+  const CoverOrderBuilder();
+
+  CoverOrderBuilder createdAt(Order value) {
+    _order['createdAt'] = value;
+    return this;
+  }
+
+  CoverOrderBuilder updatedAt(Order value) {
+    _order['updatedAt'] = value;
+    return this;
+  }
+
+  CoverOrderBuilder volume(Order value) {
+    _order['volume'] = value;
+    return this;
+  }
+
+  Map<String, Order> build() => _order;
+
+  Map<String, dynamic> toJson() =>
+      _order.map((key, value) => MapEntry(key, value.name));
 }
 
-/// A list of scanlation group orders.
-@freezed
-class ScanlationGroupOrder with _$ScanlationGroupOrder {
-  const factory ScanlationGroupOrder(
-          {@Default(OrderValue.desc) OrderValue latestUploadedChapter}) =
-      _ScanlationGroupOrder;
+class ScanlationGroupOrderBuilder {
+  final Map<String, Order> _order = const {};
 
-  factory ScanlationGroupOrder.fromJson(Map<String, dynamic> json) =>
-      _$ScanlationGroupOrderFromJson(json);
+  const ScanlationGroupOrderBuilder();
+
+  ScanlationGroupOrderBuilder latestUploadedChapter(Order value) {
+    _order['latestUploadedChapter'] = value;
+    return this;
+  }
+
+  Map<String, Order> build() => _order;
+
+  Map<String, dynamic> toJson() =>
+      _order.map((key, value) => MapEntry(key, value.name));
 }

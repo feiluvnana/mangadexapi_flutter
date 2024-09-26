@@ -1,8 +1,5 @@
 import 'package:fln_mangadex_api/src/models/models.dart';
 
-/// Represents a localized string in the MangaDex API.
-///
-/// A localized string has a map of language codes to strings.
 class LocalizedString {
   final Map<LanguageCode, String> _localizedString;
 

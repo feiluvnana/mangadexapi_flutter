@@ -7,9 +7,6 @@ import 'package:uuid/uuid.dart';
 part 'chapter.freezed.dart';
 part 'chapter.g.dart';
 
-/// Represents a chapter in the MangaDex API.
-///
-/// A chapter has an id, attributes, and relationships.
 @freezed
 class Chapter with _$Chapter {
   const Chapter._();
@@ -27,10 +24,6 @@ class Chapter with _$Chapter {
       _$ChapterFromJson(json);
 }
 
-/// Represents the attributes of a chapter in the MangaDex API.
-///
-/// Chapter attributes include the title, volume, chapter, pages, translatedLanguage,
-/// uploader, externalUrl, version, createdAt, updatedAt, publishAt, and readableAt.
 @freezed
 class ChapterAttributes with _$ChapterAttributes {
   factory ChapterAttributes(

@@ -6,9 +6,6 @@ import 'package:uuid/uuid.dart';
 part 'manga_relation.freezed.dart';
 part 'manga_relation.g.dart';
 
-/// Represents a manga relation in the MangaDex API.
-///
-/// A manga relation has an id, attributes, and relationships.
 @freezed
 class MangaRelation with _$MangaRelation {
   const factory MangaRelation(
@@ -20,9 +17,6 @@ class MangaRelation with _$MangaRelation {
       _$MangaRelationFromJson(json);
 }
 
-/// Represents the attributes of a manga relation in the MangaDex API.
-///
-/// Manga relation attributes include the relation and version.
 @freezed
 class MangaRelationAttributes with _$MangaRelationAttributes {
   const factory MangaRelationAttributes(

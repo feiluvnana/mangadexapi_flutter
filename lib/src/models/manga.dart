@@ -9,9 +9,6 @@ import 'package:uuid/uuid.dart';
 part 'manga.freezed.dart';
 part 'manga.g.dart';
 
-/// Represents a manga in the MangaDex API.
-///
-/// A manga has an id, attributes, and relationships.
 @freezed
 class Manga with _$Manga {
   const Manga._();
@@ -31,12 +28,6 @@ class Manga with _$Manga {
   factory Manga.fromJson(Map<String, dynamic> json) => _$MangaFromJson(json);
 }
 
-/// Represents the attributes of a manga in the MangaDex API.
-///
-/// Manga attributes include the title, altTitles, description, isLocked, links,
-/// originalLanguage, lastVolume, lastChapter, publicationDemographic, status, year,
-/// contentRating, chapterNumbersResetOnNewVolume, availableTranslatedLanguages,
-/// latestUploadedChapter, tags, state, version, createdAt, and updatedAt.
 @freezed
 class MangaAttributes with _$MangaAttributes {
   const factory MangaAttributes(

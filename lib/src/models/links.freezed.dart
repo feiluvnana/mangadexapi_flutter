@@ -18,7 +18,6 @@ Links _$LinksFromJson(Map<String, dynamic> json) {
   return _Links.fromJson(json);
 }
 
-/// @nodoc
 mixin _$Links {
   String? get al => throw _privateConstructorUsedError;
   String? get ap => throw _privateConstructorUsedError;
@@ -33,16 +32,12 @@ mixin _$Links {
   String? get raw => throw _privateConstructorUsedError;
   String? get engtl => throw _privateConstructorUsedError;
 
-  /// Serializes this Links to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Links
-  /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   $LinksCopyWith<Links> get copyWith => throw _privateConstructorUsedError;
 }
 
-/// @nodoc
 abstract class $LinksCopyWith<$Res> {
   factory $LinksCopyWith(Links value, $Res Function(Links) then) =
       _$LinksCopyWithImpl<$Res, Links>;
@@ -62,7 +57,6 @@ abstract class $LinksCopyWith<$Res> {
       String? engtl});
 }
 
-/// @nodoc
 class _$LinksCopyWithImpl<$Res, $Val extends Links>
     implements $LinksCopyWith<$Res> {
   _$LinksCopyWithImpl(this._value, this._then);
@@ -72,8 +66,6 @@ class _$LinksCopyWithImpl<$Res, $Val extends Links>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Links
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -143,7 +135,6 @@ class _$LinksCopyWithImpl<$Res, $Val extends Links>
   }
 }
 
-/// @nodoc
 abstract class _$$LinksImplCopyWith<$Res> implements $LinksCopyWith<$Res> {
   factory _$$LinksImplCopyWith(
           _$LinksImpl value, $Res Function(_$LinksImpl) then) =
@@ -165,7 +156,6 @@ abstract class _$$LinksImplCopyWith<$Res> implements $LinksCopyWith<$Res> {
       String? engtl});
 }
 
-/// @nodoc
 class __$$LinksImplCopyWithImpl<$Res>
     extends _$LinksCopyWithImpl<$Res, _$LinksImpl>
     implements _$$LinksImplCopyWith<$Res> {
@@ -173,8 +163,6 @@ class __$$LinksImplCopyWithImpl<$Res>
       _$LinksImpl _value, $Res Function(_$LinksImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Links
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -244,7 +232,6 @@ class __$$LinksImplCopyWithImpl<$Res>
   }
 }
 
-/// @nodoc
 @JsonSerializable()
 class _$LinksImpl extends _Links {
   const _$LinksImpl(
@@ -319,8 +306,6 @@ class _$LinksImpl extends _Links {
   int get hashCode => Object.hash(
       runtimeType, al, ap, bw, mu, nu, kt, amz, ebj, mal, cdj, raw, engtl);
 
-  /// Create a copy of Links
-  /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
@@ -378,8 +363,6 @@ abstract class _Links extends Links {
   @override
   String? get engtl;
 
-  /// Create a copy of Links
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LinksImplCopyWith<_$LinksImpl> get copyWith =>

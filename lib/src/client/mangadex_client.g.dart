@@ -8,8 +8,8 @@ part of 'mangadex_client.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
 
-class _MangadexClient implements MangadexClient {
-  _MangadexClient(
+class _Mangadex implements Mangadex {
+  _Mangadex(
     this._dio, {
     this.baseUrl,
     this.errorLogger,
@@ -26,7 +26,7 @@ class _MangadexClient implements MangadexClient {
   @override
   Future<AtHome> atHome(
     UuidValue chapterId, {
-    bool forcePort443 = Constant.atHomeForcePort443Default,
+    bool forcePort443 = MangadexConst.atHomeForcePort443Default,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'forcePort443': forcePort443};
@@ -61,11 +61,11 @@ class _MangadexClient implements MangadexClient {
 
   @override
   Future<CollectionResponse<Author>> authors({
-    int limit = Constant.mangasLimitDefault,
+    int limit = MangadexConst.mangasLimitDefault,
     int? offset,
     RetrofitList<UuidValue>? ids,
     String? name,
-    AuthorOrder order = Constant.authorsOrderDefault,
+    AuthorOrderBuilder order = MangadexConst.authorsOrderDefault,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -146,7 +146,7 @@ class _MangadexClient implements MangadexClient {
 
   @override
   Future<CollectionResponse<Chapter>> chapters({
-    int limit = Constant.chaptersLimitDefault,
+    int limit = MangadexConst.chaptersLimitDefault,
     int? offset,
     RetrofitList<UuidValue>? ids,
     String? title,
@@ -159,7 +159,7 @@ class _MangadexClient implements MangadexClient {
     RetrofitList<LanguageCode>? originalLanguage,
     RetrofitList<LanguageCode>? excludedOriginalLanguage,
     RetrofitList<ContentRating> contentRating =
-        Constant.chaptersContentRatingDefault,
+        MangadexConst.chaptersContentRatingDefault,
     RetrofitList<UuidValue>? excludeGroups,
     RetrofitList<UuidValue>? excludedUploaders,
     int? includeFutureUpdates,
@@ -169,7 +169,7 @@ class _MangadexClient implements MangadexClient {
     DateTime? createdAtSince,
     DateTime? updatedAtSince,
     DateTime? publishAtSince,
-    ChapterOrder order = Constant.chaptersOrderDefault,
+    ChapterOrderBuilder order = MangadexConst.chaptersOrderDefault,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -268,13 +268,13 @@ class _MangadexClient implements MangadexClient {
 
   @override
   Future<CollectionResponse<Cover>> covers({
-    int limit = Constant.coversLimitDefault,
+    int limit = MangadexConst.coversLimitDefault,
     int? offset,
     RetrofitList<UuidValue>? manga,
     RetrofitList<UuidValue>? ids,
     RetrofitList<UuidValue>? uploaders,
     RetrofitList<LanguageCode>? locales,
-    CoverOrder order = Constant.coversOrderDefault,
+    CoverOrderBuilder order = MangadexConst.coversOrderDefault,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -390,7 +390,7 @@ class _MangadexClient implements MangadexClient {
 
   @override
   Future<CollectionResponse<Manga>> mangas({
-    int limit = Constant.mangasLimitDefault,
+    int limit = MangadexConst.mangasLimitDefault,
     int? offset,
     String? title,
     UuidValue? authorOrArtist,
@@ -398,9 +398,9 @@ class _MangadexClient implements MangadexClient {
     RetrofitList<UuidValue>? artists,
     int? year,
     RetrofitList<UuidValue>? includedTags,
-    CludeMode includedTagsMode = Constant.mangasIncludedTagsModeDefault,
+    CludeMode includedTagsMode = MangadexConst.mangasIncludedTagsModeDefault,
     RetrofitList<UuidValue>? excludedTags,
-    CludeMode excludedTagsMode = Constant.mangasExcludedTagsModeDefault,
+    CludeMode excludedTagsMode = MangadexConst.mangasExcludedTagsModeDefault,
     RetrofitList<Status>? status,
     RetrofitList<LanguageCode>? originalLanguage,
     RetrofitList<LanguageCode>? excludeOriginalLanguage,
@@ -408,10 +408,10 @@ class _MangadexClient implements MangadexClient {
     RetrofitList<PublicationDemographic>? publicationDemographic,
     RetrofitList<UuidValue>? ids,
     RetrofitList<ContentRating> contentRating =
-        Constant.mangasContentRatingDefault,
+        MangadexConst.mangasContentRatingDefault,
     DateTime? createdAtSince,
     DateTime? updatedAtSince,
-    MangaOrder order = Constant.mangasOrderDefault,
+    MangaOrderBuilder order = MangadexConst.mangasOrderDefault,
     int? hasAvailableChapters,
     UuidValue? group,
   }) async {
@@ -513,11 +513,13 @@ class _MangadexClient implements MangadexClient {
   @override
   Future<EntityResponse<Manga>> randomManga({
     RetrofitList<ContentRating> contentRating =
-        Constant.mangaRandomContentRatingDefault,
+        MangadexConst.mangaRandomContentRatingDefault,
     RetrofitList<UuidValue>? includedTags,
-    CludeMode includedTagsMode = Constant.mangaRandomIncludedTagsModeDefault,
+    CludeMode includedTagsMode =
+        MangadexConst.mangaRandomIncludedTagsModeDefault,
     RetrofitList<UuidValue>? excludedTags,
-    CludeMode excludedTagsMode = Constant.mangaRandomExcludedTagsModeDefault,
+    CludeMode excludedTagsMode =
+        MangadexConst.mangaRandomExcludedTagsModeDefault,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -563,20 +565,21 @@ class _MangadexClient implements MangadexClient {
   @override
   Future<CollectionResponse<Chapter>> mangaFeed(
     UuidValue id, {
-    int limit = Constant.mangaFeedLimitDefault,
+    int limit = MangadexConst.mangaFeedLimitDefault,
     int? offset,
     RetrofitList<LanguageCode>? translatedLanguage,
     RetrofitList<LanguageCode>? originalLanguage,
     RetrofitList<LanguageCode>? excludeOriginalLanguage,
     RetrofitList<ContentRating> contentRating =
-        Constant.mangaFeedContentRatingDefault,
+        MangadexConst.mangaFeedContentRatingDefault,
     RetrofitList<UuidValue>? excludeGroups,
     RetrofitList<UuidValue>? excludedUploaders,
-    int? includeFutureUpdates = Constant.mangaFeedIncludeFutureUpdatesDefault,
+    int? includeFutureUpdates =
+        MangadexConst.mangaFeedIncludeFutureUpdatesDefault,
     DateTime? createdAtSince,
     DateTime? updatedAtSince,
     DateTime? publishAtSince,
-    ChapterOrder order = Constant.mangaFeedOrderDefault,
+    ChapterOrderBuilder order = MangadexConst.mangaFeedOrderDefault,
     int? includeEmptyPages,
     int? includeFuturePublishAt,
     int? includeExternalUrl,
@@ -707,12 +710,13 @@ class _MangadexClient implements MangadexClient {
 
   @override
   Future<CollectionResponse<ScanlationGroup>> scanlationGroups({
-    int limit = Constant.scanlationGroupsLimitDefault,
+    int limit = MangadexConst.scanlationGroupsLimitDefault,
     int? offset,
     RetrofitList<UuidValue>? ids,
     String? name,
     LanguageCode? focusedLanguage,
-    ScanlationGroupOrder order = Constant.scanlationGroupsOrderDefault,
+    ScanlationGroupOrderBuilder order =
+        MangadexConst.scanlationGroupsOrderDefault,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{

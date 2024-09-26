@@ -6,11 +6,6 @@ import 'package:uuid/uuid.dart';
 part 'scanlation_group.freezed.dart';
 part 'scanlation_group.g.dart';
 
-/// Represents a scanlation group in the MangaDex API.
-///
-/// A scanlation group is a group of people who scanlation and translate manga.
-/// Each scanlation group has a unique identifier, attributes and relationships
-/// to other entities.
 @freezed
 class ScanlationGroup with _$ScanlationGroup {
   factory ScanlationGroup(
@@ -22,12 +17,6 @@ class ScanlationGroup with _$ScanlationGroup {
       _$ScanlationGroupFromJson(json);
 }
 
-/// Represents the attributes of a scanlation group in the MangaDex API.
-///
-/// Scanlation group attributes include the name, altNames, website, ircServer,
-/// ircChannel, discord, contactEmail, description, twitter, mangaUpdates,
-/// focusedLanguage, locked, official, verified, inactive, exLicensed,
-/// publishDelay, version, createdAt, and updatedAt.
 @freezed
 class ScanlationGroupAttributes with _$ScanlationGroupAttributes {
   factory ScanlationGroupAttributes(

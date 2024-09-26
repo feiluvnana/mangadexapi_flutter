@@ -7,9 +7,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'response.freezed.dart';
 part 'response.g.dart';
 
-/// Represents a collection response from the MangaDex API.
-///
-/// A collection response contains a list of data, limit, offset, and total.
 @Freezed(genericArgumentFactories: true)
 class CollectionResponse<T> with _$CollectionResponse<T> {
   const factory CollectionResponse(
@@ -23,9 +20,6 @@ class CollectionResponse<T> with _$CollectionResponse<T> {
       _$CollectionResponseFromJson<T>(json, fromJsonT);
 }
 
-/// Represents a single entity response from the MangaDex API.
-///
-/// A single entity response contains a single data object.
 @Freezed(genericArgumentFactories: true)
 class EntityResponse<T> with _$EntityResponse<T> {
   const factory EntityResponse({required T data}) = _EntityResponse<T>;
@@ -35,9 +29,6 @@ class EntityResponse<T> with _$EntityResponse<T> {
       _$EntityResponseFromJson<T>(json, fromJsonT);
 }
 
-/// Represents an error response from the MangaDex API.
-///
-/// An error response contains a list of errors.
 @freezed
 class ErrorResponse with _$ErrorResponse {
   factory ErrorResponse({required List<Error> errors}) = _ErrorResponse;

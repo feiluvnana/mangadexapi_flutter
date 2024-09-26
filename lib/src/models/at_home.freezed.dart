@@ -127,8 +127,9 @@ class __$$AtHomeImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AtHomeImpl implements _AtHome {
-  const _$AtHomeImpl({required this.baseUrl, required this.chapter});
+class _$AtHomeImpl extends _AtHome {
+  const _$AtHomeImpl({required this.baseUrl, required this.chapter})
+      : super._();
 
   factory _$AtHomeImpl.fromJson(Map<String, dynamic> json) =>
       _$$AtHomeImplFromJson(json);
@@ -172,10 +173,11 @@ class _$AtHomeImpl implements _AtHome {
   }
 }
 
-abstract class _AtHome implements AtHome {
+abstract class _AtHome extends AtHome {
   const factory _AtHome(
       {required final String baseUrl,
       required final AtHomeChapter chapter}) = _$AtHomeImpl;
+  const _AtHome._() : super._();
 
   factory _AtHome.fromJson(Map<String, dynamic> json) = _$AtHomeImpl.fromJson;
 

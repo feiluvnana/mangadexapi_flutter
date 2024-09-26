@@ -6,9 +6,6 @@ import 'package:uuid/uuid.dart';
 part 'cover.freezed.dart';
 part 'cover.g.dart';
 
-/// Represents a cover in the MangaDex API.
-///
-/// A cover has an id, attributes, and relationships.
 @freezed
 class Cover with _$Cover {
   const factory Cover(
@@ -19,10 +16,6 @@ class Cover with _$Cover {
   factory Cover.fromJson(Map<String, dynamic> json) => _$CoverFromJson(json);
 }
 
-/// Represents the attributes of a cover in the MangaDex API.
-///
-/// Cover attributes include the volume, fileName, description, locale, version,
-/// createdAt, and updatedAt.
 @freezed
 class CoverAttributes with _$CoverAttributes {
   const factory CoverAttributes(

@@ -1,8 +1,5 @@
 // ignore_for_file: non_constant_identifier_names
 
-/// Represents a language code in the MangaDex API.
-///
-/// A language code has a string code.
 class LanguageCode {
   final String code;
 
