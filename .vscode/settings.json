@@ -3,6 +3,11 @@
     "explorer.fileNesting.expand": false,
     "explorer.fileNesting.patterns": {
         "pubspec.yaml": "pubspec.lock",
-        "*.dart": "${capture}.g.dart, ${capture}.freezed.dart"
+        "*.dart": "${capture}.g.dart, ${capture}.freezed.dart, ${capture}.chopper.dart"
+    },
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "always",
+        "source.fixAll": "always"
     }
 }

@@ -9,3 +9,14 @@ extension StringExtension on String {
     return UuidValue.fromString(this);
   }
 }
+
+extension IterableExtension<T> on Iterable<T> {
+  T? firstWhereOrNull(bool Function(T) test) {
+    try {
+      final result = firstWhere(test);
+      return result;
+    } catch (e) {
+      return null;
+    }
+  }
+}
