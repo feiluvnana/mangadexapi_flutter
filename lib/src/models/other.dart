@@ -1,9 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:fln_mangadex_api/src/models/enums.dart';
-import 'package:fln_mangadex_api/src/utils/json_converter.dart';
+import 'package:mangadexapi_flutter/src/models/enums.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:uuid/uuid.dart';
 
 part 'other.freezed.dart';
 part 'other.g.dart';
@@ -11,7 +9,7 @@ part 'other.g.dart';
 @freezed
 class Relationship with _$Relationship {
   const factory Relationship(
-      {@UuidConverter() required UuidValue id,
+      {required String id,
       required RelationshipType type,
       RelationshipRelated? related}) = _Relationship;
 
@@ -24,19 +22,14 @@ class Links with _$Links {
   const Links._();
 
   String? get alLink => al != null ? "https://anilist.co/manga/$al" : null;
-  String? get apLink =>
-      ap != null ? "https://www.anime-planet.com/manga/$ap" : null;
+  String? get apLink => ap != null ? "https://www.anime-planet.com/manga/$ap" : null;
   String? get bwLink => bw != null ? "https://bookwalker.jp/series/$bw" : null;
   String? get muLink =>
       mu != null ? "https://www.mangaupdates.com/series.html?id=$mu" : null;
-  String? get nuLink =>
-      nu != null ? "https://www.novelupdates.com/series/$nu" : null;
-  String? get ktLink =>
-      kt != null ? "https://kitsu.io/api/edge/manga/$kt" : null;
-  String? get malLink =>
-      mal != null ? "https://myanimelist.net/manga/$mal" : null;
-  String? get cdjLink =>
-      cdj != null ? "https://www.cdjapan.co.jp/product/$cdj" : null;
+  String? get nuLink => nu != null ? "https://www.novelupdates.com/series/$nu" : null;
+  String? get ktLink => kt != null ? "https://kitsu.io/api/edge/manga/$kt" : null;
+  String? get malLink => mal != null ? "https://myanimelist.net/manga/$mal" : null;
+  String? get cdjLink => cdj != null ? "https://www.cdjapan.co.jp/product/$cdj" : null;
 
   const factory Links(
       {String? al,
@@ -58,7 +51,7 @@ class Links with _$Links {
 @freezed
 class Error with _$Error {
   const factory Error(
-      {@UuidConverter() required UuidValue id,
+      {required String id,
       required int status,
       required String title,
       String? detail,
@@ -73,12 +66,11 @@ class AtHome with _$AtHome {
 
   List<String> get allData =>
       chapter.data.map((e) => "$baseUrl/data/${chapter.hash}/$e").toList();
-  List<String> get allDataSaver => chapter.dataSaver
-      .map((e) => "$baseUrl/data-saver/${chapter.hash}/$e")
-      .toList();
+  List<String> get allDataSaver =>
+      chapter.dataSaver.map((e) => "$baseUrl/data-saver/${chapter.hash}/$e").toList();
 
-  const factory AtHome(
-      {required String baseUrl, required AtHomeChapter chapter}) = _AtHome;
+  const factory AtHome({required String baseUrl, required AtHomeChapter chapter}) =
+      _AtHome;
 
   factory AtHome.fromJson(Map<String, dynamic> json) => _$AtHomeFromJson(json);
 }

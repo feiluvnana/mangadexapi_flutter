@@ -1,7 +1,7 @@
 // ignore_for_file: invalid_annotation_target
 import 'dart:core' hide Error;
 
-import 'package:fln_mangadex_api/src/models/other.dart';
+import 'package:mangadexapi_flutter/src/models/other.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'response.freezed.dart';

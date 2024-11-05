@@ -8,7 +8,7 @@ part of 'other.dart';
 
 _$RelationshipImpl _$$RelationshipImplFromJson(Map<String, dynamic> json) =>
     _$RelationshipImpl(
-      id: const UuidConverter().fromJson(json['id'] as String),
+      id: json['id'] as String,
       type: $enumDecode(_$RelationshipTypeEnumMap, json['type']),
       related:
           $enumDecodeNullable(_$RelationshipRelatedEnumMap, json['related']),
@@ -16,7 +16,7 @@ _$RelationshipImpl _$$RelationshipImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$RelationshipImplToJson(_$RelationshipImpl instance) =>
     <String, dynamic>{
-      'id': const UuidConverter().toJson(instance.id),
+      'id': instance.id,
       'type': _$RelationshipTypeEnumMap[instance.type]!,
       'related': _$RelationshipRelatedEnumMap[instance.related],
     };
@@ -87,7 +87,7 @@ Map<String, dynamic> _$$LinksImplToJson(_$LinksImpl instance) =>
     };
 
 _$ErrorImpl _$$ErrorImplFromJson(Map<String, dynamic> json) => _$ErrorImpl(
-      id: const UuidConverter().fromJson(json['id'] as String),
+      id: json['id'] as String,
       status: (json['status'] as num).toInt(),
       title: json['title'] as String,
       detail: json['detail'] as String?,
@@ -96,7 +96,7 @@ _$ErrorImpl _$$ErrorImplFromJson(Map<String, dynamic> json) => _$ErrorImpl(
 
 Map<String, dynamic> _$$ErrorImplToJson(_$ErrorImpl instance) =>
     <String, dynamic>{
-      'id': const UuidConverter().toJson(instance.id),
+      'id': instance.id,
       'status': instance.status,
       'title': instance.title,
       'detail': instance.detail,

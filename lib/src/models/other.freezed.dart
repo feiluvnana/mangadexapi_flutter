@@ -20,8 +20,7 @@ Relationship _$RelationshipFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Relationship {
-  @UuidConverter()
-  UuidValue get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   RelationshipType get type => throw _privateConstructorUsedError;
   RelationshipRelated? get related => throw _privateConstructorUsedError;
 
@@ -41,10 +40,7 @@ abstract class $RelationshipCopyWith<$Res> {
           Relationship value, $Res Function(Relationship) then) =
       _$RelationshipCopyWithImpl<$Res, Relationship>;
   @useResult
-  $Res call(
-      {@UuidConverter() UuidValue id,
-      RelationshipType type,
-      RelationshipRelated? related});
+  $Res call({String id, RelationshipType type, RelationshipRelated? related});
 }
 
 /// @nodoc
@@ -70,7 +66,7 @@ class _$RelationshipCopyWithImpl<$Res, $Val extends Relationship>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as UuidValue,
+              as String,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -91,10 +87,7 @@ abstract class _$$RelationshipImplCopyWith<$Res>
       __$$RelationshipImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@UuidConverter() UuidValue id,
-      RelationshipType type,
-      RelationshipRelated? related});
+  $Res call({String id, RelationshipType type, RelationshipRelated? related});
 }
 
 /// @nodoc
@@ -118,7 +111,7 @@ class __$$RelationshipImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as UuidValue,
+              as String,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -135,14 +128,13 @@ class __$$RelationshipImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RelationshipImpl implements _Relationship {
   const _$RelationshipImpl(
-      {@UuidConverter() required this.id, required this.type, this.related});
+      {required this.id, required this.type, this.related});
 
   factory _$RelationshipImpl.fromJson(Map<String, dynamic> json) =>
       _$$RelationshipImplFromJson(json);
 
   @override
-  @UuidConverter()
-  final UuidValue id;
+  final String id;
   @override
   final RelationshipType type;
   @override
@@ -185,7 +177,7 @@ class _$RelationshipImpl implements _Relationship {
 
 abstract class _Relationship implements Relationship {
   const factory _Relationship(
-      {@UuidConverter() required final UuidValue id,
+      {required final String id,
       required final RelationshipType type,
       final RelationshipRelated? related}) = _$RelationshipImpl;
 
@@ -193,8 +185,7 @@ abstract class _Relationship implements Relationship {
       _$RelationshipImpl.fromJson;
 
   @override
-  @UuidConverter()
-  UuidValue get id;
+  String get id;
   @override
   RelationshipType get type;
   @override
@@ -586,8 +577,7 @@ Error _$ErrorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Error {
-  @UuidConverter()
-  UuidValue get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   int get status => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String? get detail => throw _privateConstructorUsedError;
@@ -608,11 +598,7 @@ abstract class $ErrorCopyWith<$Res> {
       _$ErrorCopyWithImpl<$Res, Error>;
   @useResult
   $Res call(
-      {@UuidConverter() UuidValue id,
-      int status,
-      String title,
-      String? detail,
-      String? context});
+      {String id, int status, String title, String? detail, String? context});
 }
 
 /// @nodoc
@@ -640,7 +626,7 @@ class _$ErrorCopyWithImpl<$Res, $Val extends Error>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as UuidValue,
+              as String,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -669,11 +655,7 @@ abstract class _$$ErrorImplCopyWith<$Res> implements $ErrorCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@UuidConverter() UuidValue id,
-      int status,
-      String title,
-      String? detail,
-      String? context});
+      {String id, int status, String title, String? detail, String? context});
 }
 
 /// @nodoc
@@ -699,7 +681,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as UuidValue,
+              as String,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -724,7 +706,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ErrorImpl implements _Error {
   const _$ErrorImpl(
-      {@UuidConverter() required this.id,
+      {required this.id,
       required this.status,
       required this.title,
       this.detail,
@@ -734,8 +716,7 @@ class _$ErrorImpl implements _Error {
       _$$ErrorImplFromJson(json);
 
   @override
-  @UuidConverter()
-  final UuidValue id;
+  final String id;
   @override
   final int status;
   @override
@@ -785,7 +766,7 @@ class _$ErrorImpl implements _Error {
 
 abstract class _Error implements Error {
   const factory _Error(
-      {@UuidConverter() required final UuidValue id,
+      {required final String id,
       required final int status,
       required final String title,
       final String? detail,
@@ -794,8 +775,7 @@ abstract class _Error implements Error {
   factory _Error.fromJson(Map<String, dynamic> json) = _$ErrorImpl.fromJson;
 
   @override
-  @UuidConverter()
-  UuidValue get id;
+  String get id;
   @override
   int get status;
   @override

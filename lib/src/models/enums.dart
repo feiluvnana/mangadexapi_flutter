@@ -8,10 +8,6 @@ enum ContentRating { safe, suggestive, erotica, pornographic }
 
 enum State { draft, submitted, published, rejected }
 
-enum Order { asc, desc }
-
-enum CludeMode { AND, OR }
-
 enum RelationshipType {
   manga,
   chapter,
@@ -47,4 +43,3 @@ enum RelationshipRelated {
 }
 
 enum TagGroup { content, format, genre, theme }
-

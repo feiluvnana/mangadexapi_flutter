@@ -1,48 +1,80 @@
-import 'package:fln_mangadex_api/src/models/models.dart';
-import 'package:fln_mangadex_api/src/utils/json_converter.dart';
+import 'package:mangadexapi_flutter/src/models/models.dart';
+import 'package:mangadexapi_flutter/src/utils/json_converter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:uuid/uuid.dart';
 
 part 'entity.freezed.dart';
 part 'entity.g.dart';
 
-@Freezed(unionKey: "type", unionValueCase: FreezedUnionCase.snake)
-sealed class Entity with _$Entity {
-  const factory Entity.author(
-      {@UuidConverter() required UuidValue id,
+@freezed
+class Author with _$Author {
+  const factory Author(
+      {required String id,
       required AuthorAttributes attributes,
-      required List<Relationship> relationships}) = Author;
+      required List<Relationship> relationships}) = _Author;
 
-  const factory Entity.chapter(
-      {@UuidConverter() required UuidValue id,
+  factory Author.fromJson(Map<String, dynamic> json) => _$AuthorFromJson(json);
+}
+
+@freezed
+class Chapter with _$Chapter {
+  const factory Chapter(
+      {required String id,
       required ChapterAttributes attributes,
-      required List<Relationship> relationships}) = Chapter;
+      required List<Relationship> relationships}) = _Chapter;
 
-  const factory Entity.cover(
-      {@UuidConverter() required UuidValue id,
+  factory Chapter.fromJson(Map<String, dynamic> json) => _$ChapterFromJson(json);
+}
+
+@freezed
+class Cover with _$Cover {
+  const factory Cover(
+      {required String id,
       required CoverAttributes attributes,
-      required List<Relationship> relationships}) = Cover;
+      required List<Relationship> relationships}) = _Cover;
 
-  const factory Entity.mangaRelation(
-      {@UuidConverter() required UuidValue id,
+  factory Cover.fromJson(Map<String, dynamic> json) => _$CoverFromJson(json);
+}
+
+@freezed
+class MangaRelation with _$MangaRelation {
+  const factory MangaRelation(
+      {required String id,
       required MangaRelationAttributes attributes,
-      required List<Relationship> relationships}) = MangaRelation;
+      required List<Relationship> relationships}) = _MangaRelation;
 
-  const factory Entity.manga(
-      {@UuidConverter() required UuidValue id,
+  factory MangaRelation.fromJson(Map<String, dynamic> json) =>
+      _$MangaRelationFromJson(json);
+}
+
+@freezed
+class Manga with _$Manga {
+  const factory Manga(
+      {required String id,
       required MangaAttributes attributes,
-      required List<Relationship> relationships}) = Manga;
+      required List<Relationship> relationships}) = _Manga;
 
-  const factory Entity.scanlationGroup(
-      {@UuidConverter() required UuidValue id,
+  factory Manga.fromJson(Map<String, dynamic> json) => _$MangaFromJson(json);
+}
+
+@freezed
+class ScanlationGroup with _$ScanlationGroup {
+  factory ScanlationGroup(
+      {required String id,
       required ScanlationGroupAttributes attributes,
-      required List<Relationship> relationships}) = ScanlationGroup;
+      required List<Relationship> relationships}) = _ScanlationGroup;
 
-  const factory Entity.tag(
-      {@UuidConverter() required UuidValue id,
+  factory ScanlationGroup.fromJson(Map<String, dynamic> json) =>
+      _$ScanlationGroupFromJson(json);
+}
+
+@freezed
+class Tag with _$Tag {
+  factory Tag(
+      {required String id,
       required TagAttributes attributes,
-      required List<Relationship> relationships}) = Tag;
-  factory Entity.fromJson(Map<String, dynamic> json) => _$EntityFromJson(json);
+      required List<Relationship> relationships}) = _Tag;
+
+  factory Tag.fromJson(Map<String, dynamic> json) => _$TagFromJson(json);
 }
 
 @freezed
@@ -50,7 +82,7 @@ class AuthorAttributes with _$AuthorAttributes {
   const factory AuthorAttributes(
       {required String name,
       String? imageUrl,
-      @LocalizedStringConverter() required LocalizedString biography,
+      required Map<String, dynamic> biography,
       String? twitter,
       String? pixiv,
       String? melonBook,
@@ -81,7 +113,7 @@ class ChapterAttributes with _$ChapterAttributes {
       String? chapter,
       required int pages,
       required String translatedLanguage,
-      @UuidConverter() UuidValue? uploader,
+      String? uploader,
       String? externalUrl,
       required int version,
       @DateTimeConverter() required DateTime createdAt,
@@ -121,12 +153,12 @@ class MangaRelationAttributes with _$MangaRelationAttributes {
 @freezed
 class MangaAttributes with _$MangaAttributes {
   const factory MangaAttributes(
-      {@LocalizedStringConverter() required LocalizedString title,
-      @LocalizedStringConverter() required List<LocalizedString> altTitles,
-      @LocalizedStringConverter() required LocalizedString description,
+      {required Map<String, String> title,
+      required List<dynamic> altTitles,
+      required Map<String, String> description,
       required bool isLocked,
       Links? links,
-      @LanguageCodeConverter() required LanguageCode originalLanguage,
+      required String originalLanguage,
       String? lastVolume,
       String? lastChapter,
       PublicationDemographic? publicationDemographic,
@@ -134,9 +166,8 @@ class MangaAttributes with _$MangaAttributes {
       int? year,
       required ContentRating contentRating,
       required bool chapterNumbersResetOnNewVolume,
-      @NullableLanguageCodeConverter()
-      required List<LanguageCode?> availableTranslatedLanguages,
-      @UuidConverter() UuidValue? latestUploadedChapter,
+      required List<String?> availableTranslatedLanguages,
+      String? latestUploadedChapter,
       required List<Tag> tags,
       required State state,
       required int version,
@@ -150,27 +181,26 @@ class MangaAttributes with _$MangaAttributes {
 @freezed
 class ScanlationGroupAttributes with _$ScanlationGroupAttributes {
   factory ScanlationGroupAttributes(
-          {required String name,
-          @LocalizedStringConverter() required List<LocalizedString> altNames,
-          String? website,
-          String? ircServer,
-          String? ircChannel,
-          String? discord,
-          String? contactEmail,
-          String? description,
-          String? twitter,
-          String? mangaUpdates,
-          @LanguageCodeConverter() List<LanguageCode>? focusedLanguage,
-          required bool locked,
-          required bool official,
-          required bool verified,
-          required bool inactive,
-          bool? exLicensed,
-          String? publishDelay,
-          required int version,
-          @DateTimeConverter() required DateTime createdAt,
-          @DateTimeConverter() required DateTime updatedAt}) =
-      _ScanlationGroupAttributes;
+      {required String name,
+      required List<dynamic> altNames,
+      String? website,
+      String? ircServer,
+      String? ircChannel,
+      String? discord,
+      String? contactEmail,
+      String? description,
+      String? twitter,
+      String? mangaUpdates,
+      List<String>? focusedLanguage,
+      required bool locked,
+      required bool official,
+      required bool verified,
+      required bool inactive,
+      bool? exLicensed,
+      String? publishDelay,
+      required int version,
+      @DateTimeConverter() required DateTime createdAt,
+      @DateTimeConverter() required DateTime updatedAt}) = _ScanlationGroupAttributes;
 
   factory ScanlationGroupAttributes.fromJson(Map<String, dynamic> json) =>
       _$ScanlationGroupAttributesFromJson(json);
@@ -180,8 +210,8 @@ class ScanlationGroupAttributes with _$ScanlationGroupAttributes {
 class TagAttributes with _$TagAttributes {
   @Assert("version >= 1", "Version must be greater than or equal to 1.")
   factory TagAttributes(
-      {@LocalizedStringConverter() required LocalizedString name,
-      @LocalizedStringConverter() required LocalizedString description,
+      {required Map<String, String> name,
+      required Map<String, String> description,
       required TagGroup group,
       required int version}) = _TagAttributes;
 

@@ -1,13 +1,17 @@
 {
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "always"
+    },
+    "editor.fontWeight": "500",
+    "editor.formatOnSave": true,
+    "editor.guides.indentation": false,
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
     "explorer.fileNesting.patterns": {
-        "pubspec.yaml": "pubspec.lock",
-        "*.dart": "${capture}.g.dart, ${capture}.freezed.dart, ${capture}.chopper.dart"
+        "pubspec.yaml": "pubspec.lock, analysis_options.yaml, .flutter-plugins, .flutter-plugins-dependencies, .metadata",
+        "*.dart": "${capture}.g.dart, ${capture}.freezed.dart"
     },
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": "always",
-        "source.fixAll": "always"
-    }
+    "fonted.font": "Inter",
+    "dart.lineLength": 90,
+    "dart.previewFlutterUiGuides": true
 }

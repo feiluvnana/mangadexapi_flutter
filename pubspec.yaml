@@ -1,19 +1,19 @@
-name: fln_mangadex_api
+name: mangadexapi_flutter
 description: A starting point for Dart libraries or applications.
 version: 1.0.0
 
 environment:
-  sdk: ^3.6.0-149.3.beta
+  sdk: ^3.6.0-334.3.beta
 
 dependencies:
-  chopper: ^8.0.3
+  dio: ^5.7.0
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
-  uuid: ^4.5.0
+  lints: ^5.0.0
+  retrofit: ^4.4.1
 
 dev_dependencies:
-  lints: ^5.1.0
   build_runner: ^2.4.13
   freezed: ^2.5.7
   json_serializable: ^6.8.0
-  chopper_generator: ^8.0.3
+  retrofit_generator: ^9.1.4
