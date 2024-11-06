@@ -1,6 +1,7 @@
-import 'package:mangadexapi_flutter/src/models/models.dart';
-import 'package:mangadexapi_flutter/src/utils/json_converter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:mangadexapi_flutter/src/models/models.dart';
+import 'package:mangadexapi_flutter/src/utils/extension.dart';
+import 'package:mangadexapi_flutter/src/utils/json_converter.dart';
 
 part 'entity.freezed.dart';
 part 'entity.g.dart';
@@ -27,6 +28,15 @@ class Chapter with _$Chapter {
 
 @freezed
 class Cover with _$Cover {
+  const Cover._();
+
+  String get url =>
+      "https://uploads.mangadex.org/covers/${relationships.firstWhereOrNull((e) => e.type == RelationshipType.manga)?.id}/${attributes.fileName}";
+  String get url256 =>
+      "https://uploads.mangadex.org/covers/${relationships.firstWhereOrNull((e) => e.type == RelationshipType.manga)?.id}/${attributes.fileName}.256.jpg";
+  String get url512 =>
+      "https://uploads.mangadex.org/covers/${relationships.firstWhereOrNull((e) => e.type == RelationshipType.manga)?.id}/${attributes.fileName}.512.jpg";
+
   const factory Cover(
       {required String id,
       required CoverAttributes attributes,

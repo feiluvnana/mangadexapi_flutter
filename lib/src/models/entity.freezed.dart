@@ -570,12 +570,13 @@ class __$$CoverImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CoverImpl implements _Cover {
+class _$CoverImpl extends _Cover {
   const _$CoverImpl(
       {required this.id,
       required this.attributes,
       required final List<Relationship> relationships})
-      : _relationships = relationships;
+      : _relationships = relationships,
+        super._();
 
   factory _$CoverImpl.fromJson(Map<String, dynamic> json) =>
       _$$CoverImplFromJson(json);
@@ -630,11 +631,12 @@ class _$CoverImpl implements _Cover {
   }
 }
 
-abstract class _Cover implements Cover {
+abstract class _Cover extends Cover {
   const factory _Cover(
       {required final String id,
       required final CoverAttributes attributes,
       required final List<Relationship> relationships}) = _$CoverImpl;
+  const _Cover._() : super._();
 
   factory _Cover.fromJson(Map<String, dynamic> json) = _$CoverImpl.fromJson;
 
