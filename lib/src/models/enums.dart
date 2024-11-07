@@ -1,12 +1,45 @@
 // ignore_for_file: constant_identifier_names
 
-enum PublicationDemographic { shounen, shoujo, josei, seinen, none }
+enum PublicationDemographic {
+  shounen,
+  shoujo,
+  josei,
+  seinen,
+  none;
 
-enum Status { completed, ongoing, cancelled, hiatus }
+  @override
+  String toString() => name;
+}
 
-enum ContentRating { safe, suggestive, erotica, pornographic }
+enum Status {
+  completed,
+  ongoing,
+  cancelled,
+  hiatus;
 
-enum State { draft, submitted, published, rejected }
+  @override
+  String toString() => name;
+}
+
+enum ContentRating {
+  safe,
+  suggestive,
+  erotica,
+  pornographic;
+
+  @override
+  String toString() => name;
+}
+
+enum State {
+  draft,
+  submitted,
+  published,
+  rejected;
+
+  @override
+  String toString() => name;
+}
 
 enum RelationshipType {
   manga,
@@ -20,7 +53,10 @@ enum RelationshipType {
   custom_list,
   leader,
   member,
-  creator
+  creator;
+
+  @override
+  String toString() => name;
 }
 
 enum RelationshipRelated {
@@ -39,7 +75,18 @@ enum RelationshipRelated {
   alternate_version,
   preserialization,
   colored,
-  serialization
+  serialization;
+
+  @override
+  String toString() => name;
 }
 
-enum TagGroup { content, format, genre, theme }
+enum TagGroup {
+  content,
+  format,
+  genre,
+  theme;
+
+  @override
+  String toString() => name;
+}
