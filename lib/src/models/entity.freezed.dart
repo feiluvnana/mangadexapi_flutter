@@ -1002,12 +1002,13 @@ class __$$MangaImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MangaImpl implements _Manga {
+class _$MangaImpl extends _Manga {
   const _$MangaImpl(
       {required this.id,
       required this.attributes,
       required final List<Relationship> relationships})
-      : _relationships = relationships;
+      : _relationships = relationships,
+        super._();
 
   factory _$MangaImpl.fromJson(Map<String, dynamic> json) =>
       _$$MangaImplFromJson(json);
@@ -1062,11 +1063,12 @@ class _$MangaImpl implements _Manga {
   }
 }
 
-abstract class _Manga implements Manga {
+abstract class _Manga extends Manga {
   const factory _Manga(
       {required final String id,
       required final MangaAttributes attributes,
       required final List<Relationship> relationships}) = _$MangaImpl;
+  const _Manga._() : super._();
 
   factory _Manga.fromJson(Map<String, dynamic> json) = _$MangaImpl.fromJson;
 

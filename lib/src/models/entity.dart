@@ -58,6 +58,11 @@ class MangaRelation with _$MangaRelation {
 
 @freezed
 class Manga with _$Manga {
+  const Manga._();
+
+  Relationship? get coverArt =>
+      relationships.firstWhereOrNull((e) => e.type == RelationshipType.cover_art);
+
   const factory Manga(
       {required String id,
       required MangaAttributes attributes,
