@@ -62,6 +62,8 @@ class Manga with _$Manga {
 
   Relationship? get coverArt =>
       relationships.firstWhereOrNull((e) => e.type == RelationshipType.cover_art);
+  Relationship? get author =>
+      relationships.firstWhereOrNull((e) => e.type == RelationshipType.author);
 
   const factory Manga(
       {required String id,
